@@ -13,7 +13,7 @@ console.log(country)
 console.log(population)
 
  const isIsland = true;
- let language;
+//  let language;
 
  console.log(typeof isIsland)
 
@@ -75,7 +75,7 @@ if (bmiMark > bmiJohn){
 // equility operators
 
 let neighbors;
-neighbors = Number(prompt("How many neighbors do you have?"))
+// neighbors = Number(prompt("How many neighbors do you have?"))
 console.log(neighbors)
 
 if(neighbors === 1){
@@ -86,20 +86,20 @@ if(neighbors === 1){
     console.log("no borders")
 }
 
-code challenge
+// code challenge
 
-scores
+// scores
 const minimumScore = 100;
-const dolphinsAverageScore = (96 + 108 + 89) / 3;
-const koalasAverageScore = (88 + 91 + 110)  / 3;
+// const dolphinsAverageScore = (96 + 108 + 89) / 3;
+// const koalasAverageScore = (88 + 91 + 110)  / 3;
 
-const dolphinsAverageScore = (97 + 112 + 80) / 3;
-const koalasAverageScore = (109 + 95 + 50)  / 3;
+// const dolphinsAverageScore = (97 + 112 + 80) / 3;
+// const koalasAverageScore = (109 + 95 + 50)  / 3;
 
 const dolphinsAverageScore = (97 + 112 + 101) / 3;
 const koalasAverageScore = (109 + 95 + 106)  / 3;
 
- compare the teams average score and print winner of competition
+//  compare the teams average score and print winner of competition
 
  if (dolphinsAverageScore > koalasAverageScore){
     console.log(`dolphins score = ${dolphinsAverageScore}`);
@@ -121,9 +121,9 @@ if(dolphinsAverageScore > koalasAverageScore && dolphinsAverageScore > minimumSc
 }
 
 
-switch statements
+// switch statements
 let day;
-day = prompt(`Enter day`);
+// day = prompt(`Enter day`);
 
 switch(day){
     case `monday`:
@@ -147,14 +147,14 @@ if(day === `monday`){
     console.log(`invalid day`)
 }
 
-conditional ternary operator
-allows us to write if else on the same line
-? : are ternary operators
-const age = 23
-age >= 18 ? console.log(`i like to race cars`) : console.log(`i like to race bicycles`)
+// conditional ternary operator
+// allows us to write if else on the same line
+// ? : are ternary operators
+const agee = 23
+agee >= 18 ? console.log(`i like to race cars`) : console.log(`i like to race bicycles`)
 
 
-ternary coding challenge
+// ternary coding challenge
 const value = 275
 let tip;
 
@@ -162,7 +162,7 @@ let calculatedTip = value >= 50 && value <= 300 ? (0.15 * value) : (0.2 * value)
 
 console.log(`The bill was ${value}, the tip was ${calculatedTip} and the total value ${value + calculatedTip}`)
 
-switch assignment
+// switch assignment
 
 const language = "arabic"
 switch(language){
@@ -183,14 +183,14 @@ switch(language){
         console.log("Great language too")
 }
 
-type conversion and coercion
+// type conversion and coercion
 console.log('9' - '5'); // -> 4
 console.log('19' - '13' + '17'); // -> '617' 
 console.log('19' - '13' + 17); // -> 23 
 console.log('123' < 57); // -> false
  console.log(5 + 6 + '4' + 9 - 4 - 2); // -> 1143
 
-logical operators 
+// logical operators 
 if (language === 'english' && population < 50 && !isIsland)
 {
   console.log(`You should live in ${country} :)`);
@@ -200,7 +200,7 @@ if (language === 'english' && population < 50 && !isIsland)
 
 
 
-functions 
+// functions 
 
 `use strict`; 
 function called(){
@@ -246,7 +246,7 @@ const calcAge2 = function(birthYear){
 console.log(calcAge2(1991))
 
 
-function assignment
+// function assignment
 const worldPopulation = 300
 function percentageOfWorld1(population){
     let percentage = (population / worldPopulation) * 100 
@@ -282,4 +282,44 @@ const retirementAge = (yearBorn, firstName) => {
 console.log(retirementAge(1991, "Jonas"))
 console.log(retirementAge(1980, "Isaac"))
 
+
+// functions calling other functions
+
+// arrays
+
+const newArray = ["Hussein", "Jonas", "Bob"]
+console.log(newArray)
+// accessing the first element 
+// add the position of these items starting from 0
+console.log(newArray[0])
+
+// number of elements in the array
+console.log(newArray.length)
+
+//get the last element in the array
+console.log(newArray[newArray.length - 1])
+
+// adding elements to an array
+newArray[3] = "isaac"
+console.log(newArray[3])
+console.log(newArray.length)
+console.log(newArray)
+
+// array can hold different data types
+
+// array exercise
+ function getAges(YOB){
+    return 2037 - YOB;
+ }
+
+const ages = [1990, 1989, 1978, 2010, 2005, 2000, 2016]
+const age1 = getAges(ages[0])
+const age2 = getAges(ages[1])
+const age3 = getAges(ages[2])
+const age4 = getAges(ages[ages.length - 1])
+// const age4 = getAges[ages(ages.length - 1])
+console.log(age1, age2, age3, age4)
+
+ const newAges = [getAges(ages[0]), getAges(ages[1]), getAges(ages[2]), getAges(ages[ages.length - 1])];
+ console.log(newAges)
 
