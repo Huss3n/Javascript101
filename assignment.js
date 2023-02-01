@@ -266,4 +266,20 @@ const percentageOfWorld2 = function (population){
 
 console.log(percentageOfWorld2(100))
 
-arrow functions 
+// arrow functions 
+const year = 2037
+// birthYear = 1991
+const calcAge3 = birthYear =>  year - birthYear
+console.log(calcAge3(1991)) 
+
+// arrow function with multiple parameters
+const retirementAge = (yearBorn, firstName) => {
+    const age = year - yearBorn
+    const yeatsToRetirement = 65 - age;
+    return `${firstName} retires after ${yeatsToRetirement} years`;
+}
+
+console.log(retirementAge(1991, "Jonas"))
+console.log(retirementAge(1980, "Isaac"))
+
+
