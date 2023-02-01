@@ -343,7 +343,7 @@ console.log(calctTip(400))
 
 const bills = [125, 555, 44]
 
-// using an arrow function
+// // using an arrow function
 const calcTip = amount => {
     if (amount >= 50 && amount <= 300){
         return amount * 0.15;
@@ -351,10 +351,60 @@ const calcTip = amount => {
         return amount * 0.2
     }
 }
-// console.log(calcTip(200))
-
 const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])]
 const totalTips = [bills[0]+tips[0], bills[1]+tips[1], bills[2]+tips[2]]
 
 console.log(tips)
 console.log(totalTips)
+
+// introduction to objects
+
+const details = {
+    firstName: "Hussein",
+    secondName: "Aisak",
+    age: 19,
+    background: 'Nobody knows',
+    friends: ["Jonas", "Bob", "Isaac", "know", "cars", "when"]
+}
+console.log(details)
+
+// accessing the elements inside the object using the dot notation
+console.log(details.age)
+console.log(details.friends[2])
+
+// accessing using the bracket notation
+console.log(details[`background`])
+
+//  since the last words are same we can do this
+//  only works with bracket notation
+ const namekey = `Name`
+console.log(details[`first` + namekey]);
+
+// more example of bracket notation
+const whatToKnow = prompt(`What do you want to know choose between: 
+firstName, 
+secondName or
+friends
+`)
+
+// check whether the input is same as the ones listed
+if (whatToKnow != `friends` && whatToKnow != `firstName` && whatToKnow != `secondName`){
+    console.log("Please choose the correct option listed above")
+}else{
+    console.log(details[whatToKnow])
+}
+
+
+// using the dot and bracket notation to add elements to the object
+// adding using the dot notation
+details.location = `Portugal`;
+console.log(details) ;
+
+// adding using the bracket notation
+details['instagram'] = '@hussein';
+console.log(details)
+
+// challenge
+
+console.log(details['firstName'] + " has " + details.friends.length + " friends and his best friend is " + details.friends[0])
+
