@@ -364,7 +364,11 @@ const details = {
     secondName: "Aisak",
     age: 19,
     background: 'Nobody knows',
-    friends: ["Jonas", "Bob", "Isaac", "know", "cars", "when"]
+    friends: ["Jonas", "Bob", "Isaac", "know", "cars", "when"],
+    funcExample: function(){
+        const retirement = 67 - this.age
+       return retirement;
+    }
 }
 console.log(details)
 
@@ -408,3 +412,44 @@ console.log(details)
 
 console.log(details['firstName'] + " has " + details.friends.length + " friends and his best friend is " + details.friends[0])
 
+
+// object methods
+// addidng functions to objects
+
+console.log(details.funcExample())
+
+// coding challenge on objects
+
+const objectMark = {
+    fullName: 'Mark Miller',
+    mass: 78,
+    height: 1.69,
+
+    // function to calculate bmi
+    calcBMI: function(){
+        this.bmi = this.mass / (this.height * this.height)
+        return this.bmi;
+    }
+}
+
+const objectJohn = {
+    fullName: 'John Smith',
+    mass: 92,
+    height: 1.95,
+    calculateBMI: function(){
+        this.bmi = this.mass / this.height ** 2;
+        return this.bmi;
+    }
+}
+objectMark.calcBMI()
+console.log(objectMark.bmi)
+
+objectJohn.calculateBMI();
+console.log(objectJohn.bmi);
+
+if( objectMark.bmi > objectJohn.bmi){
+    console.log(objectMark.fullName + " 's BMI ("+ objectMark.bmi + ") is higher than "+ objectJohn.fullName + " 's BMI (" + objectJohn.bmi +")!")
+}else{
+    console.log(objectJohn.fullName + " 's BMI ("+ objectJohn.bmi + ") is higher than "+ objectMark.fullName + " 's BMI (" + objectMark.bmi +")!")
+}
+ 
