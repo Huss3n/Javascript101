@@ -517,3 +517,21 @@ for(let i = cars.length - 1; i >=0; i--){
     console.log(i, cars[i])
 }
 
+
+// while loop
+
+let times = 1;
+while(times <= 10){
+    console.log(`While: the best are those who keep pushing ${times}`)
+    times ++;
+}
+
+let dice = Math.trunc(Math.random() * 6) +1;
+
+while(dice !== 6){
+    console.log(`You rolled a ${dice}`)
+    dice = Math.trunc(Math.random() * 6) +1;
+}
+
+
+
