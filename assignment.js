@@ -511,3 +511,9 @@ for(let i = 0; i < toyota.length; i++){
 }
 
 
+// looping backwards and loops in loops 
+
+for(let i = cars.length - 1; i >=0; i--){
+    console.log(i, cars[i])
+}
+
