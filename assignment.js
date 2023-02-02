@@ -473,3 +473,41 @@ for (numbers = 1; numbers <= 50; numbers ++){
     console.log(`Voter number ${numbers} is currently voting`)
 }
 
+// looping arrays, breaking and continuing
+const cars = [`mercedes`, `toyota`, `nissan`, `ford`, `GMC`, `BMW`, `Audi`, `Land rover`, `Volvo`, `Bentley`]
+
+// looping through the cars array
+// loggin the elementsin the array
+console.log(cars[0])
+console.log(cars[1])
+console.log(cars[2])
+console.log(cars[3])
+console.log(cars[4])
+console.log(cars[5])
+console.log(cars[6])
+console.log(cars[7])
+console.log(cars[8])
+
+// the above code is repetative this can be simplified by the following loop
+for(i = 0; i < cars.length; i++){
+    console.log(cars[i])
+}
+
+// looping through an object
+const toyota = {
+    company: `Toyota`,
+    make: `rav4`,
+    engine: `1800cc`,
+    details: ["4 doors", "4 wheels", "1 steering"],
+    drive: function(){
+        console.log("car moves forward")
+    }
+}
+
+console.log(toyota)
+// to loop through the above object
+for(let i = 0; i < toyota.length; i++){
+    console.log(toyota[i], typeof toyota[i]);
+}
+
+
