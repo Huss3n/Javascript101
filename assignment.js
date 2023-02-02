@@ -453,3 +453,23 @@ if( objectMark.bmi > objectJohn.bmi){
     console.log(objectJohn.fullName + " 's BMI ("+ objectJohn.bmi + ") is higher than "+ objectMark.fullName + " 's BMI (" + objectMark.bmi +")!")
 }
  
+
+// iteration
+// the for loops
+// the below code we repeat our selves hence violates dry 
+console.log("repeat weght lifting 1")
+console.log("repeat weght lifting 2")
+console.log("repeat weght lifting 3")
+console.log("repeat weght lifting 4")
+
+// using a for loop
+for (rep = 1; rep <=  10; rep ++){
+    console.log(`repeat weight lifting ${rep}`);
+    rep +=1;
+}
+
+// loop assignment
+for (numbers = 1; numbers <= 50; numbers ++){
+    console.log(`Voter number ${numbers} is currently voting`)
+}
+
