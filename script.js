@@ -1,3 +1,1 @@
-
-// let firstName = "Hussein"
-// console.log(firstName)
+// console.log("Hussein");
