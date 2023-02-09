@@ -6,6 +6,7 @@ const score1El = document.getElementById("score--1");
 const current0El = document.getElementById("current--0");
 const current1El = document.getElementById("current--1");
 
+const firstPlayer = document.querySelector(".player--0");
 const diceEl = document.querySelector(".dice");
 const btnNew = document.querySelector(".btn--new");
 const btnRoll = document.querySelector(".btn--roll");
@@ -93,3 +94,54 @@ btnHold.addEventListener("click", function () {
 });
 
 btnNew.addEventListener("click", init);
+
+// const playerOneDisplay = document.getElementById("score--0");
+// const playerOneScore = document.getElementById("current--0");
+// const rollButton = document.querySelector(".btn--roll");
+// const holdButton = document.querySelector(".btn--hold");
+// const newGameButton = document.querySelector(".btn--new");
+// const displayDice = document.querySelector(".dice");
+// let currentUserScore = 0;
+// let totalScore = 0;
+
+// // function that resets everything
+// function reset() {
+//   displayDice.classList.add("hidden");
+//   playerOneDisplay.textContent = 0;
+//   playerOneScore.textContent = 0;
+//   currentUserScore = 0;
+// }
+// // hide the dice before the game starts and set scores to zero
+// displayDice.classList.add("hidden");
+// playerOneDisplay.textContent = 0;
+
+// rollButton.addEventListener("click", function () {
+//   // get a random dice and display
+//   const randomDice = Math.trunc(Math.random() * 6) + 1;
+//   displayDice.classList.remove("hidden");
+//   displayDice.src = `dice-${randomDice}.png`;
+//   console.log(randomDice);
+
+//   // use random dice for calculations
+//   // check whether the dice rolls to one
+//   if (randomDice !== 1) {
+//     // add the random dice to the random score
+//     currentUserScore += randomDice;
+//     playerOneScore.textContent = currentUserScore;
+//   } else {
+//     currentUserScore = 0;
+//     playerOneScore.textContent = currentUserScore;
+//   }
+// });
+
+// // when hold button is clicked
+// // 1 add the total score to the above score
+// // 2 reset the current score to 0
+
+// holdButton.addEventListener("click", function () {
+//   playerOneDisplay.textContent = totalScore += currentUserScore;
+//   playerOneScore.textContent = 0;
+// });
+
+// // resets the game
+// newGameButton.addEventListener("click", reset);
