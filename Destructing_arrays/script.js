@@ -50,3 +50,25 @@ console.log(w, q, e);
 // setting default values
 const [a = 1, b = 1, c = 1] = [3, 7];
 console.log(a, b, c);
+
+// destructuring objects
+const { name, openingHours, starterMenu } = restaurant;
+console.log(name, openingHours, starterMenu);
+
+// using variables names you want
+// const { menu: menu, openingHours: hours, starterMenu: start } = restaurant;
+// console.log(menu, hours, start);
+
+// mutating variables
+let r = 111;
+let t = 888;
+
+const obj = { r: 10, t: 30, z: 50 };
+({ r, t } = obj);
+console.log(r, t);
+
+// nested objects
+const {
+  fri: { open, close },
+} = openingHours;
+console.log(open, close);
