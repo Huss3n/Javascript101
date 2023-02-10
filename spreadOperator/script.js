@@ -26,6 +26,9 @@ const restaurant = {
   order: function (indexAt) {
     return `order of ${indexAt} has been received`;
   },
+  orderPasta: function (ing) {
+    return `Here is your pasta with ${this.menu[0]} ingridients`;
+  },
 };
 
 // builds a new array from scratch by expanding the new array
@@ -50,3 +53,14 @@ const firstName = "hussein";
 const letters = [...firstName, "", "S"];
 console.log(letters);
 console.log(...letters);
+
+const ingridients = [
+  prompt("Let's make pasta, ingridient 1: ?"),
+  prompt("ingridient 2: ?"),
+  prompt("ingridient 3: ?"),
+];
+
+restaurant.orderPasta(ingridients[0], ingridients[1], ingridients[2]);
+// restaurant.orderPasta(...ingridients);
+console.log(restaurant.orderPasta);
+// console.log(ingridients);
