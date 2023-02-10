@@ -11,7 +11,9 @@ const restaurant = {
   categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
   starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
   mainMenu: ["Pizza", "Pasta", "Risotto"],
-
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
   openingHours: {
     thu: {
       open: 12,
@@ -34,3 +36,17 @@ console.log(x, y, z);
 
 const [firstCat, secondCat, , fourthCat] = restaurant.categories;
 console.log(firstCat, secondCat, fourthCat);
+
+// receiving two return values using destructuring
+const [starter, mainCourse] = restaurant.order(2, 0);
+console.log(starter, mainCourse);
+
+// what happens when we have a nasted array
+const nested = [2, 4, [5, 6]];
+
+const [w, , [q, e]] = nested;
+console.log(w, q, e);
+
+// setting default values
+const [a = 1, b = 1, c = 1] = [3, 7];
+console.log(a, b, c);
