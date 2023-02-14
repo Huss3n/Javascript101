@@ -113,3 +113,52 @@ const draw = game.odds.x;
 const win2 = game.odds.team2;
 
 console.log(`average odd is ${(win + draw + win2) / 3}`);
+
+let average = 0;
+let odds = Object.values(game.odds);
+for (const odd of odds) average += odd;
+console.log(average);
+average /= odds.length;
+console.log(average);
+for (const [team, odd] of Object.entries(game.odds)) {
+  console.log(team, odd);
+}
+
+// creating a set
+// set removes duplicates
+const newSet = new Set(["Pasta", "Pizza", "Pizza", "Rice", "Risotto"]);
+console.log(newSet);
+// check set size
+console.log(newSet.size);
+// check for an item in the set
+console.log(newSet.has("bread"));
+
+// add an item in the set
+console.log(newSet.add("Bread"));
+
+// delete item in a set
+console.log(newSet.delete("Bread"));
+console.log(newSet);
+
+// delete all items in a set
+// console.log(newSet.clear());
+// console.log(newSet);
+
+// looping through sets
+
+for (const order of newSet) {
+  console.log(order);
+}
+
+// sets are mostly used to remove duplicate values in an array
+
+const employees = ["Waiter", "Chef", "Manager", "Waiter", "Chef", "Waiter"];
+
+// for us to clean the above array with duplicates we add them in a set
+const employeeSet = new Set(employees);
+console.log(employeeSet);
+
+// loop through it
+for (const emplyee of employeeSet) {
+  console.log(emplyee);
+}
