@@ -64,3 +64,82 @@ restaurant.orderPasta(ingridients[0], ingridients[1], ingridients[2]);
 // restaurant.orderPasta(...ingridients);
 console.log(restaurant.orderPasta);
 // console.log(ingridients);
+
+// coding challenge
+
+const game = {
+  team1: "Bayern",
+  team2: "bvb",
+  players: [
+    [
+      "Never",
+      "Pavard",
+      "Martiniz",
+      "Alaba",
+      "Davies",
+      "Kimich",
+      "Goretza",
+      "Coman",
+      "Muller",
+      "Gnaby",
+      "Lewandoski",
+    ],
+    [
+      "Burki",
+      "schools",
+      "Hakimi",
+      "Himels",
+      "weigl",
+      "witsel",
+      "havard",
+      "brant",
+      "sancho",
+      "Gotze",
+    ],
+  ],
+  score: "4.0",
+  scored: ["Lewandoski", "Gnaby", "Lewandoski", "hummels"],
+  date: "Nov 19th, 2037",
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+const [players1, players2] = game.players;
+// console.log(players1, players2);
+
+// gk name and the rest
+const [goalkeeper, ...fieldPlayers] = players1;
+console.log(goalkeeper);
+
+// field players
+// const fieldPlayers = [...players1];
+console.log(fieldPlayers);
+
+// all players
+const allPlayers = [...players1, ...players2];
+console.log(allPlayers);
+
+// players1 final
+const players1final = [...players1, "Thiago", "Coutinho", "Perisic"];
+// console.log(players1final);
+
+// variable for each odds
+const team1win = game.odds.team1;
+const draw = game.odds.x;
+const team2win = game.odds.team2;
+console.log(team1win);
+console.log(draw);
+console.log(team2win);
+
+function printGoals(...players) {
+  console.log(`${players.length} goals were scored`);
+}
+
+printGoals("Goretza", "Coman", "Muller", "Gnaby", "Lewandoski");
+printGoals("Goretza", "Lewandoski");
+
+team1win < team2win && console.log("Team one is likely to win");
+team1win > team2win && console.log("Team two is likely to win");
