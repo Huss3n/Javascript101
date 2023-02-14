@@ -143,3 +143,5 @@ printGoals("Goretza", "Lewandoski");
 
 team1win < team2win && console.log("Team one is likely to win");
 team1win > team2win && console.log("Team two is likely to win");
+
+// looping over the goal scored array
