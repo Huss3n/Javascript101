@@ -24,3 +24,14 @@ function checkIn(flightNumber, passenger) {
 checkIn(flight, hussein);
 console.log(flight);
 console.log(hussein);
+
+// passing by reference for arrays
+let a = [2, 3, 4];
+console.log(`a = ${a}`);
+let b = a;
+console.log(`b = ${b}`);
+b.push(10);
+
+console.log("<------After pushing------>");
+console.log(`a = ${a}`);
+console.log(`b = ${b}`);
