@@ -64,3 +64,19 @@ console.log(`num2: ${num2}`);
 // <<----- High order functions ------>>
 // a function that receives another function as an argument, retuns a new function or both
 // possible because of first class functions
+
+const oneWord = function (str) {
+  return str.replace(/ /g, ""), toLoweCase();
+};
+
+const upperFirstWord = function (str) {
+  return ([first, ...others] = str.split(""));
+  return;
+  [first.toUpperCase(), ...others].join("");
+};
+
+// higher order function
+const transformer = function (str, fn) {
+  console.log(`Transformed string ${fn(str)}`);
+};
+transformer("Js is the best!", upperFirstWord);
