@@ -80,3 +80,5 @@ const transformer = function (str, fn) {
   console.log(`Transformed string ${fn(str)}`);
 };
 transformer("Js is the best!", upperFirstWord);
+
+// need to work on consistency
