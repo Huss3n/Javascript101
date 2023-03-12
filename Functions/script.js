@@ -81,4 +81,28 @@ const transformer = function (str, fn) {
 };
 transformer("Js is the best!", upperFirstWord);
 
-// need to work on consistency
+// call back functions
+
+// functions returning functions
+function greet(greeting) {
+  return function (name) {
+    console.log(`${greeting}, ${name}`);
+  };
+}
+const sayHey = greet("Hey");
+sayHey("Hussein");
+sayHey("Jonas");
+
+// <--- or call it directly --->
+
+greet("Hello")("Aisak");
+
+// <---- Using arrow functions ---->
+let myFunc = (greeting) => {
+  let greet = (name) => {
+    console.log(`${greeting} ${name}`);
+  };
+  return greet;
+};
+
+myFunc("Good day")("Ibrahim");
