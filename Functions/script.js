@@ -152,3 +152,18 @@ console.log(delta.bookings);
 
 //<------ APPLY Method ------>
 // apply method is similar to the call method but does not receive arguments after the this keyword
+
+const luftansa = {
+  airline: "Luftansa",
+  iatacode: "LE",
+  bookings: [],
+};
+
+const flightData = [354, "John Smith"];
+book.apply(luftansa, flightData);
+console.log(luftansa.bookings);
+
+// using spread operator
+const newData = [234, "Indiana Jones"];
+book.call(luftansa, ...newData);
+console.log(luftansa.bookings);
