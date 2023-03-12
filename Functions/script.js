@@ -106,3 +106,49 @@ let myFunc = (greeting) => {
 };
 
 myFunc("Good day")("Ibrahim");
+
+// THE CALL AND APPLY METHOD
+const delta = {
+  airline: "Delta",
+  iatacode: "DE",
+  bookings: [],
+  // book : function(){
+
+  // }
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a flight with ${this.airline} ${this.iatacode} airline flight number ${flightNum}`
+    );
+    this.bookings.push({
+      flight: `${name}, ${this.iatacode}${flightNum}`,
+    });
+  },
+};
+
+delta.book(245, "Hussein");
+console.log(delta.bookings);
+delta.book(532, "Aisak");
+delta.book(129, "Muktar");
+console.log(delta.bookings);
+
+// create a book function outside to be used by the other airline
+const book = delta.book;
+
+// create another airline
+const southWest = {
+  airline: "southwest",
+  iatacode: "SW",
+  bookings: [],
+};
+
+// <------ CALL Method ----->
+// using a method on a function
+// seting the this keyword from undefined to the needed airline
+book.call(southWest, 231, "Sarah");
+console.log(southWest.bookings);
+
+book.call(delta, 835, "Wyse");
+console.log(delta.bookings);
+
+//<------ APPLY Method ------>
+// apply method is similar to the call method but does not receive arguments after the this keyword
