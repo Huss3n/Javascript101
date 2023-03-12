@@ -167,3 +167,5 @@ console.log(luftansa.bookings);
 const newData = [234, "Indiana Jones"];
 book.call(luftansa, ...newData);
 console.log(luftansa.bookings);
+
+//<----THE BIND METHOD ----->
