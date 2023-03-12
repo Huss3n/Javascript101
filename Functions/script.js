@@ -142,6 +142,7 @@ const southWest = {
 };
 
 // <------ CALL Method ----->
+console.log(" <------ CALL Method ----->");
 // using a method on a function
 // seting the this keyword from undefined to the needed airline
 book.call(southWest, 231, "Sarah");
@@ -151,6 +152,7 @@ book.call(delta, 835, "Wyse");
 console.log(delta.bookings);
 
 //<------ APPLY Method ------>
+console.log("<------ APPLY Method ------>");
 // apply method is similar to the call method but does not receive arguments after the this keyword
 
 const luftansa = {
@@ -169,3 +171,11 @@ book.call(luftansa, ...newData);
 console.log(luftansa.bookings);
 
 //<----THE BIND METHOD ----->
+console.log("<----THE BIND METHOD ----->");
+
+// setting the this keyword in stone
+const bookSO = book.bind(southWest);
+const bookLu = book.bind(luftansa);
+const bookDe = book.bind(delta);
+bookFlight(236, "Jonas S");
+console.log(southWest.bookings);
