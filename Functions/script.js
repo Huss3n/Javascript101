@@ -273,3 +273,5 @@ poll.displayResult.call({ answers: [5, 2, 3] }, "string");
 (() => {
   console.log("This too runs only once");
 })();
+
+// CLOSURES
