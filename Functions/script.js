@@ -261,3 +261,7 @@ document.querySelector(".poll").addEventListener("click", poll.registerNewAnswer
 
 // bonus
 poll.displayResult.call({ answers: [5, 2, 3] }, "string");
+
+// immidietly invoked function expressions IIFE
+// only excued once and never again
+// used mostly a async await
