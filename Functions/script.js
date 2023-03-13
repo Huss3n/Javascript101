@@ -295,3 +295,28 @@ booker();
 // its like a bag pack that carries the vars from the inherited functions
 // clousures cannot be accessed directly rather take alook at the internal properties by using console.dir
 console.dir(booker);
+
+// closure examples
+let f;
+
+const g = function () {
+  const a = 10;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+// f is a closure of g
+g();
+f();
+
+const h = function () {
+  const b = 20;
+  f = function () {
+    console.log(20 * 2);
+  };
+};
+
+// h is a closure of f
+h();
+f();
