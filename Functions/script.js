@@ -199,3 +199,14 @@ const addVAT = addTax.bind(null, 23);
 console.log(addVAT(200));
 console.log(addVAT(500));
 console.log(addVAT(4500));
+
+const tax = (rate) => {
+  return function (value) {
+    return value + value * (rate / 100);
+  };
+  // return calc;
+};
+
+console.log(tax(20)(200));
+
+// <----- CODING CHALLENGE ----->
