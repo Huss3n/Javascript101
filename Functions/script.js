@@ -288,3 +288,10 @@ const secureBooking = function () {
 const booker = secureBooking();
 booker();
 booker();
+
+// closure has priority over EC
+// closure gives a function all the parent variables of the function
+// clousure makes sure the function never losses connection to the variables from the parent scope
+// its like a bag pack that carries the vars from the inherited functions
+// clousures cannot be accessed directly rather take alook at the internal properties by using console.dir
+console.dir(booker);
