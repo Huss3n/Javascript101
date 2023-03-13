@@ -191,3 +191,11 @@ delta.buyplanes = function () {
 document
   .querySelector(".buy")
   .addEventListener("click", delta.buyplanes.bind(delta));
+
+// presetting an argument
+const addTax = (rate, value) => value + value * (rate / 100);
+
+const addVAT = addTax.bind(null, 23);
+console.log(addVAT(200));
+console.log(addVAT(500));
+console.log(addVAT(4500));
