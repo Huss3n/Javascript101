@@ -275,3 +275,16 @@ poll.displayResult.call({ answers: [5, 2, 3] }, "string");
 })();
 
 // CLOSURES
+// not explicitly used
+// not created manually like arrays but recognised in situations
+const secureBooking = function () {
+  let passengerCount = 0;
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+booker();
+booker();
