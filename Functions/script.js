@@ -117,9 +117,7 @@ const delta = {
 
   // }
   book(flightNum, name) {
-    console.log(
-      `${name} booked a flight with ${this.airline} ${this.iatacode} airline flight number ${flightNum}`
-    );
+    console.log(`${name} booked a flight with ${this.airline} ${this.iatacode} airline flight number ${flightNum}`);
     this.bookings.push({
       flight: `${name}, ${this.iatacode}${flightNum}`,
     });
@@ -188,9 +186,7 @@ delta.buyplanes = function () {
   console.log(this.planes);
 };
 // console.log(delta.plnaes);
-document
-  .querySelector(".buy")
-  .addEventListener("click", delta.buyplanes.bind(delta));
+document.querySelector(".buy").addEventListener("click", delta.buyplanes.bind(delta));
 
 // presetting an argument
 const addTax = (rate, value) => value + value * (rate / 100);
@@ -233,3 +229,32 @@ BONUS TEST DATA 1: [5, 2, 3]
 BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]
 GOOD LUCK 😀
 */
+
+const poll = {
+  question: "What is your fav coding language",
+  options: ["0: js", "1: Java", "2: C#", "3: Python"],
+  answers: new Array(4).fill(0),
+
+  registerNewAnswer() {
+    const answer = Number(prompt(`${this.question}\n ${this.options.join("\n")}\n (write option number)`));
+    console.log(answer);
+    // add answer
+    // if (answer === typeof "number" && answer < this.answers.length) {
+    //   this.answers[answer]++;
+    //   console.log(this.answers);
+    // }
+    typeof answer === "number" && answer < this.answers.length && this.answers[answer]++;
+    this.displayResult();
+    this.displayResult("string");
+  },
+  displayResult(type = "array") {
+    if (type === "array") {
+      console.log(this.answers);
+    } else if ((type = "string")) {
+      console.log(`Poll results = ${this.answers.join(",")}`);
+    }
+  },
+};
+
+// document.querySelector(".poll").addEventListener("click", poll.registerNewAnswer);
+document.querySelector(".poll").addEventListener("click", poll.registerNewAnswer.bind(poll));
