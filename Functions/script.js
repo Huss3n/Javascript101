@@ -265,3 +265,11 @@ poll.displayResult.call({ answers: [5, 2, 3] }, "string");
 // immidietly invoked function expressions IIFE
 // only excued once and never again
 // used mostly a async await
+
+(function () {
+  console.log("Only runs once");
+})();
+
+(() => {
+  console.log("This too runs only once");
+})();
