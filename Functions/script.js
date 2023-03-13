@@ -112,6 +112,7 @@ const delta = {
   airline: "Delta",
   iatacode: "DE",
   bookings: [],
+  planes: [],
   // book : function(){
 
   // }
@@ -177,5 +178,16 @@ console.log("<----THE BIND METHOD ----->");
 const bookSO = book.bind(southWest);
 const bookLu = book.bind(luftansa);
 const bookDe = book.bind(delta);
-bookFlight(236, "Jonas S");
+bookSO(236, "Jonas S");
 console.log(southWest.bookings);
+
+// with event listeners
+delta.planes = 300;
+delta.buyplanes = function () {
+  this.planes++;
+  console.log(this.planes);
+};
+// console.log(delta.plnaes);
+document
+  .querySelector(".buy")
+  .addEventListener("click", delta.buyplanes.bind(delta));
