@@ -622,3 +622,36 @@ function generateHashtag(str) {
 
   return hashtag.length <= 140 ? hashtag : false;
 }
+
+/*
+Take the following IPv4 address: 128.32.10.1
+
+This address has 4 octets where each octet is a single byte (or 8 bits).
+
+1st octet 128 has the binary representation: 10000000
+2nd octet 32 has the binary representation: 00100000
+3rd octet 10 has the binary representation: 00001010
+4th octet 1 has the binary representation: 00000001
+So 128.32.10.1 == 10000000.00100000.00001010.00000001
+
+Because the above IP address has 32 bits, we can represent it as the unsigned 32 bit number: 2149583361
+
+Complete the function that takes an unsigned 32 bit number and returns a string representation of its IPv4 address.
+
+Examples
+2149583361 ==> "128.32.10.1"
+32         ==> "0.0.0.32"
+0          ==> "0.0.0.0" */
+function int32ToIp(int32) {
+  // Convert the integer to binary and pad with leading zeros
+  const binary = int32.toString(2).padStart(32, "0");
+
+  // Split the binary string into 4 octets of 8 bits each
+  const octets = [binary.slice(0, 8), binary.slice(8, 16), binary.slice(16, 24), binary.slice(24)];
+
+  // Convert each octet from binary to decimal
+  const decimals = octets.map((octet) => parseInt(octet, 2));
+
+  // Join the decimal values with dots to form the IPv4 address string
+  return decimals.join(".");
+}
