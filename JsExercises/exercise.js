@@ -116,3 +116,13 @@ function countLetter(str, letter) {
 }
 
 console.log(countLetter("Hello world", "o"));
+
+// 10. Write a function to combine unlimited arrays
+function combineArrays(...arrays) {
+  return arrays.reduce((combined, array) => combined.concat(array), []);
+}
+var arr1 = [1, 2, 3];
+var arr2 = [4, 5];
+var arr3 = [6];
+var combined = combineArrays(arr1, arr2, arr3);
+console.log(combined); // output: [1, 2, 3, 4, 5, 6]
