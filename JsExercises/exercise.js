@@ -213,3 +213,16 @@ var arr3 = [9, 9, 9, 9, 9, 9, 9];
 console.log(countBoomerangs(arr1)); // output: 4
 console.log(countBoomerangs(arr2)); // output: 1
 console.log(countBoomerangs(arr3)); // output: 0
+
+// Given is an array numbers. Return the number of odd numbers.
+function countOddNumbers(numbers) {
+  let count = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 === 1) {
+      count++;
+    }
+  }
+  return count;
+}
+
+console.log(countOddNumbers(2, 3, 12, 89, 23, 12, 4, 6, 8)); // output = 3
