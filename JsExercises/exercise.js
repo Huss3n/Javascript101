@@ -53,3 +53,11 @@ function chechForPalindrome(input) {
 
 console.log(chechForPalindrome("Hussein"));
 console.log(chechForPalindrome("racecar"));
+
+// 4. Write a function to calculate simple interest based on the principle amount
+const calcInterest = (principle, rate, time) => {
+  let calculated = principle + principle * rate * time;
+  return calculated;
+};
+
+console.log(calcInterest(2000, 5, 2));
