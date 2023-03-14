@@ -1248,3 +1248,52 @@ The first player who connects four items of the same color is the winner.
 
 You should return "Yellow", "Red" or "Draw" accordingly.
  */
+
+function whoIsWinner(piecesPositionList) {
+  const grid = createGrid();
+  const colors = ["Red", "Yellow"];
+
+  for (let i = 0; i < piecesPositionList.length; i++) {
+    const [col, color] = piecesPositionList[i].split("_");
+    const row = getNextEmptyRow(grid, col);
+    grid[row][col] = color;
+
+    if (checkWin(grid, row, col, color)) {
+      return color;
+    }
+  }
+
+  return "Draw";
+}
+
+function createGrid() {
+  return Array.from({ length: 6 }, () => Array.from({ length: 7 }, () => null));
+}
+
+function getNextEmptyRow(grid, col) {
+  for (let row = grid.length - 1; row >= 0; row--) {
+    if (grid[row][col] === null) {
+      return row;
+    }
+  }
+  return -1; // Column is full
+}
+
+function checkWin(grid, row, col, color) {
+  return (
+    checkDirection(grid, row, col, color, 1, 0) || // Horizontal
+    checkDirection(grid, row, col, color, 0, 1) || // Vertical
+    checkDirection(grid, row, col, color, 1, 1) || // Diagonal \
+    checkDirection(grid, row, col, color, 1, -1) // Diagonal /
+  );
+}
+
+function checkDirection(grid, row, col, color, rowDir, colDir) {
+  let count = 0;
+  while (row >= 0 && row < grid.length && col >= 0 && col < grid[0].length && grid[row][col] === color) {
+    count++;
+    row += rowDir;
+    col += colDir;
+  }
+  return count >= 4;
+}
