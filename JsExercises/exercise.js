@@ -178,3 +178,20 @@ function lengths(arr) {
 var arr = ["apple", "banana", "cherry", "date"];
 var result = lengths(arr);
 console.log(result); // output: [5, 6, 6, 4]
+
+// 15. Create a function that takes an array of numbers and return "Boom!" if the digit 7 appears in the array. Otherwise, return "there is no 7 in the array".
+function hasSeven(arr) {
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i].toString().indexOf("7") !== -1) {
+      return "Boom!";
+    }
+  }
+  return "there is no 7 in the array";
+}
+var arr1 = [1, 2, 3, 4, 5];
+var arr2 = [7, 8, 9];
+var arr3 = [7, 10, 77, 80];
+
+console.log(hasSeven(arr1)); // output: "there is no 7 in the array"
+console.log(hasSeven(arr2)); // output: "Boom!"
+console.log(hasSeven(arr3)); // output: "Boom!"
