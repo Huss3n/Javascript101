@@ -226,3 +226,14 @@ function countOddNumbers(numbers) {
 }
 
 console.log(countOddNumbers(2, 3, 12, 89, 23, 12, 4, 6, 8)); // output = 3
+
+// Given is a word word. Run through the word and merge every second letter into a new word.
+function mergeEverySecondLetter(word) {
+  var mergedWord = "";
+  for (var i = 0; i < word.length; i++) {
+    if (i % 2 === 0) {
+      mergedWord += word[i];
+    }
+  }
+  return mergedWord;
+}
