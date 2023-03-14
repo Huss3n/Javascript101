@@ -918,3 +918,12 @@ Your task is to write a function that takes a pyramid representation as an argum
 By the way...
 My tests include some extraordinarily high pyramids so as you can guess, brute-force method is a bad idea unless you have a few centuries to waste. You must come up with something more clever than that.
  */
+
+function longestSlideDown(pyramid) {
+  for (let i = pyramid.length - 2; i >= 0; i--) {
+    for (let j = 0; j <= i; j++) {
+      pyramid[i][j] += Math.max(pyramid[i + 1][j], pyramid[i + 1][j + 1]);
+    }
+  }
+  return pyramid[0][0];
+}
