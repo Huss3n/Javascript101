@@ -195,3 +195,21 @@ var arr3 = [7, 10, 77, 80];
 console.log(hasSeven(arr1)); // output: "there is no 7 in the array"
 console.log(hasSeven(arr2)); // output: "Boom!"
 console.log(hasSeven(arr3)); // output: "Boom!"
+
+// 16. Boomerang
+function countBoomerangs(arr) {
+  var count = 0;
+  for (var i = 0; i < arr.length - 2; i++) {
+    if (arr[i] === arr[i + 2] && arr[i] !== arr[i + 1]) {
+      count++;
+    }
+  }
+  return count;
+}
+var arr1 = [1, 2, 1, 2, 1, 2, 3];
+var arr2 = [5, 6, 6, 7, 6, 3, 9];
+var arr3 = [9, 9, 9, 9, 9, 9, 9];
+
+console.log(countBoomerangs(arr1)); // output: 4
+console.log(countBoomerangs(arr2)); // output: 1
+console.log(countBoomerangs(arr3)); // output: 0
