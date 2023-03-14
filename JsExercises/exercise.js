@@ -152,3 +152,16 @@ function flattenArray(arr) {
 var arr = [1, [2, [3, 4], 5], 6];
 var flattened = flattenArray(arr);
 console.log(flattened); // output: [1, 2, 3, 4, 5, 6]
+
+/*
+Write a function named tellFortune that:
+takes 4 arguments: number of children, partner's name, geographic location, job title.
+outputs your fortune to the screen like so: "You will be a X in Y, and married to Z with N kids."
+Call that function 3 times with 3 different values for the arguments.
+*/
+const tellFortune = (numberOfChildren, patnersName, geolocation, jobTitle) => {
+  let output = `You will be a ${jobTitle} in ${geolocation} and married to ${patnersName} with ${numberOfChildren} kids`;
+  return output;
+};
+console.log(tellFortune(2, "Amie", "New York", "programmer"));
+console.log(tellFortune(1, "Lucy", "London", "actor"));
