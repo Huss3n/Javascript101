@@ -237,3 +237,29 @@ function mergeEverySecondLetter(word) {
   }
   return mergedWord;
 }
+
+/**
+ Create the function fridayTheThirteenths that accepts a start year and an end year (inclusive), and returns all of the dates where the 13th of a month lands on a Friday in the given range of year(s).
+The return value should be a string where each date is seperated by a space. The date should be formatted like 9/13/2014 where months do not have leading zeroes and are separated with forward slashes.
+If no end year is given, only return friday the thirteenths during the start year.
+ */
+function fridayTheThirteenths(startYear, endYear) {
+  if (endYear === undefined) {
+    endYear = startYear;
+  }
+  var dates = [];
+  for (var year = startYear; year <= endYear; year++) {
+    for (var month = 1; month <= 12; month++) {
+      var date = new Date(year, month - 1, 13);
+      if (date.getDay() === 5) {
+        var monthStr = month.toString();
+        if (monthStr.length === 1) {
+          monthStr = "0" + monthStr;
+        }
+        dates.push(monthStr + "/13/" + year);
+      }
+    }
+  }
+  return dates.join(" ");
+}
+console.log(fridayTheThirteenths(1999, 2000));
