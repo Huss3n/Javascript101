@@ -553,3 +553,47 @@ function spinWords(str) {
   }
   return words.join(" ");
 }
+
+/*
+There is a queue for the self-checkout tills at the supermarket. Your task is write a function to calculate the total time required for all the customers to check out!
+
+input
+customers: an array of positive integers representing the queue. Each integer represents a customer, and its value is the amount of time they require to check out.
+n: a positive integer, the number of checkout tills.
+output
+The function should return an integer, the total time required. */
+function queueTime(customers, n) {
+  let tills = Array(n).fill(0); // initialize an array with n elements all set to 0
+  for (let i = 0; i < customers.length; i++) {
+    let nextCustomer = customers[i];
+    let nextTill = tills.indexOf(Math.min(...tills)); // find the till with the shortest queue
+    tills[nextTill] += nextCustomer; // add the next customer's checkout time to the shortest queue
+  }
+  return Math.max(...tills); // return the longest queue time
+}
+
+// Example usage
+console.log(queueTime([5, 3, 4], 1)); // Output: 12
+console.log(queueTime([10, 2, 3, 3], 2)); // Output: 10
+console.log(queueTime([2, 3, 10], 2)); // Output: 12
+
+/*
+The wave (known as the Mexican wave in the English-speaking world outside North America) is an example of metachronal rhythm achieved in a packed stadium when successive groups of spectators briefly stand, yell, and raise their arms. Immediately upon stretching to full height, the spectator returns to the usual seated position.
+
+The result is a wave of standing spectators that travels through the crowd, even though individual spectators never move away from their seats. In many large arenas the crowd is seated in a contiguous circuit all the way around the sport field, and so the wave is able to travel continuously around the arena; in discontiguous seating arrangements, the wave can instead reflect back and forth through the crowd. When the gap in seating is narrow, the wave can sometimes pass through it. Usually only one wave crest will be present at any given time in an arena, although simultaneous, counter-rotating waves have been produced. 
+Task
+
+In this simple Kata your task is to create a function that turns a string into a Mexican Wave. You will be passed a string and you must return that string in an array where an uppercase letter is a person standing up.
+ 1.  The input string will always be lower case but maybe empty.
+
+ 2.  If the character in the string is whitespace then pass over it as if it was an empty seat
+*/
+function wave(str) {
+  let result = [];
+  for (let i = 0; i < str.length; i++) {
+    if (/[a-z]/.test(str[i])) {
+      result.push(str.slice(0, i) + str[i].toUpperCase() + str.slice(i + 1));
+    }
+  }
+  return result;
+}
