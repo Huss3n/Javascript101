@@ -1,5 +1,14 @@
-// Write a function to reverse a number
 `use strict`;
+// Write a function to reverse a number
+function reverse(number) {
+  var num = 0;
+  while (number != 0) {
+    num = num * 10;
+    num = num + (number % 10);
+    number = Math.trunc(number / 10); // remove the decimal places
+  }
+  return num;
+}
 
 function reverse(number) {
   var num = 0; // 0
@@ -26,3 +35,21 @@ function vowel(string) {
   return num;
 }
 console.log(vowel("Academic Trial")); //6
+
+// 3.  Write a function to check if an input string is a palindrome
+function chechForPalindrome(input) {
+  // convert the input to lowercase and remove non-alphanumeric characters
+  input.toLowerCase().replace(/[W_]/g, "");
+  // create a new string that is the reverse of the input string
+  let reversedString = input.split("").reverse().join("");
+  console.log(reversedString);
+  // compare the reversed string to the input
+  if (reversedString === input) {
+    console.log(true);
+  } else {
+    console.log(false);
+  }
+}
+
+console.log(chechForPalindrome("Hussein"));
+console.log(chechForPalindrome("racecar"));
