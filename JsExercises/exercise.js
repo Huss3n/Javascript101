@@ -1178,3 +1178,47 @@ Given an expression, figure out the value of the rune represented by the questio
 
 Complete the method to solve the expression to find the value of the unknown rune. The method takes a string as a paramater repressenting the expression and will return an int value representing the unknown rune or -1 if no such rune exists.
  */
+
+function solveExpression(exp) {
+  const [left, op, right, result] = exp.split(/([+=*])/);
+  const possibleDigits = "0123456789".split("").filter((d) => !left.includes(d) && !right.includes(d) && !result.includes(d));
+  let minDigit = -1;
+
+  for (const digit of possibleDigits) {
+    const leftValue = left.replace(/\?/g, digit);
+    const rightValue = right.replace(/\?/g, digit);
+    const resultValue = result.replace(/\?/g, digit);
+    if (isValidNumber(leftValue) && isValidNumber(rightValue) && isValidNumber(resultValue)) {
+      const leftNum = Number(leftValue);
+      const rightNum = Number(rightValue);
+      const resultNum = Number(resultValue);
+      if (isValidEquation(leftNum, op, rightNum, resultNum)) {
+        if (minDigit === -1 || digit < minDigit) {
+          minDigit = digit;
+        }
+      }
+    }
+  }
+
+  return minDigit;
+}
+
+function isValidNumber(numStr) {
+  if (numStr.startsWith("-")) {
+    numStr = numStr.slice(1);
+  }
+  return !numStr.startsWith("0") && numStr.length > 0 && /^[0-9]+$/.test(numStr) && Number(numStr) >= -1000000 && Number(numStr) <= 1000000;
+}
+
+function isValidEquation(left, op, right, result) {
+  switch (op) {
+    case "+":
+      return left + right === result;
+    case "-":
+      return left - right === result;
+    case "*":
+      return left * right === result;
+    default:
+      return false;
+  }
+}
