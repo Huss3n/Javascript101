@@ -957,3 +957,22 @@ Bonus points (not really, but just for fun):
 Avoid creating an array whose memory footprint is roughly as big as the input text.
 Avoid sorting the entire array of unique words.
  */
+
+function topThreeWords(text) {
+  // Replace all non-alphanumeric characters with whitespace
+  let words = text
+    .replace(/[^\w']/g, " ")
+    .toLowerCase()
+    .split(" ");
+
+  let count = {};
+  for (let word of words) {
+    if (word !== "") {
+      count[word] = (count[word] || 0) + 1;
+    }
+  }
+
+  let sortedWords = Object.keys(count).sort((a, b) => count[b] - count[a]);
+
+  return sortedWords.slice(0, 3);
+}
