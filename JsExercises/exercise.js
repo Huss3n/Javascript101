@@ -69,3 +69,14 @@ const randomNum = () => {
 };
 
 console.log(randomNum());
+
+// 6. Write a function to find Factorial of a number
+function factorial(n) {
+  var result = 1;
+  for (var i = 2; i <= n; i++) {
+    result *= i;
+  }
+  return result;
+}
+
+console.log(factorial(5));
