@@ -1250,15 +1250,29 @@ You should return "Yellow", "Red" or "Draw" accordingly.
  */
 
 function whoIsWinner(piecesPositionList) {
-  const grid = createGrid();
-  const colors = ["Red", "Yellow"];
+  const board = Array(6)
+    .fill()
+    .map(() => Array(7).fill(null));
 
-  for (let i = 0; i < piecesPositionList.length; i++) {
-    const [col, color] = piecesPositionList[i].split("_");
-    const row = getNextEmptyRow(grid, col);
-    grid[row][col] = color;
+  const getColor = (piece) => piece.split("_")[1];
+  const getColumn = (piece) => piece.split("_")[0].charCodeAt(0) - "A".charCodeAt(0);
 
-    if (checkWin(grid, row, col, color)) {
+  for (const piece of piecesPositionList) {
+    const color = getColor(piece);
+    const column = getColumn(piece);
+
+    let row = 5;
+    while (row >= 0 && board[row][column] !== null) {
+      row--;
+    }
+
+    if (row < 0) {
+      return "Draw";
+    }
+
+    board[row][column] = color;
+
+    if (checkWin(board, row, column)) {
       return color;
     }
   }
@@ -1266,34 +1280,76 @@ function whoIsWinner(piecesPositionList) {
   return "Draw";
 }
 
-function createGrid() {
-  return Array.from({ length: 6 }, () => Array.from({ length: 7 }, () => null));
-}
+function checkWin(board, row, column) {
+  const color = board[row][column];
 
-function getNextEmptyRow(grid, col) {
-  for (let row = grid.length - 1; row >= 0; row--) {
-    if (grid[row][col] === null) {
-      return row;
+  // check horizontal
+  let count = 0;
+  for (let c = 0; c < board[row].length; c++) {
+    if (board[row][c] === color) {
+      count++;
+      if (count === 4) {
+        return true;
+      }
+    } else {
+      count = 0;
     }
   }
-  return -1; // Column is full
-}
 
-function checkWin(grid, row, col, color) {
-  return (
-    checkDirection(grid, row, col, color, 1, 0) || // Horizontal
-    checkDirection(grid, row, col, color, 0, 1) || // Vertical
-    checkDirection(grid, row, col, color, 1, 1) || // Diagonal \
-    checkDirection(grid, row, col, color, 1, -1) // Diagonal /
-  );
-}
-
-function checkDirection(grid, row, col, color, rowDir, colDir) {
-  let count = 0;
-  while (row >= 0 && row < grid.length && col >= 0 && col < grid[0].length && grid[row][col] === color) {
-    count++;
-    row += rowDir;
-    col += colDir;
+  // check vertical
+  count = 0;
+  for (let r = 0; r < board.length; r++) {
+    if (board[r][column] === color) {
+      count++;
+      if (count === 4) {
+        return true;
+      }
+    } else {
+      count = 0;
+    }
   }
-  return count >= 4;
+
+  // check diagonal
+  count = 0;
+  let r = row,
+    c = column;
+  while (r > 0 && c > 0) {
+    r--;
+    c--;
+  }
+  while (r < board.length && c < board[row].length) {
+    if (board[r][c] === color) {
+      count++;
+      if (count === 4) {
+        return true;
+      }
+    } else {
+      count = 0;
+    }
+    r++;
+    c++;
+  }
+
+  // check other diagonal
+  count = 0;
+  r = row;
+  c = column;
+  while (r > 0 && c < board[row].length - 1) {
+    r--;
+    c++;
+  }
+  while (r < board.length && c >= 0) {
+    if (board[r][c] === color) {
+      count++;
+      if (count === 4) {
+        return true;
+      }
+    } else {
+      count = 0;
+    }
+    r++;
+    c--;
+  }
+
+  return false;
 }
