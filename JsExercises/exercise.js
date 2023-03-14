@@ -153,7 +153,7 @@ var arr = [1, [2, [3, 4], 5], 6];
 var flattened = flattenArray(arr);
 console.log(flattened); // output: [1, 2, 3, 4, 5, 6]
 
-/*
+/* 13
 Write a function named tellFortune that:
 takes 4 arguments: number of children, partner's name, geographic location, job title.
 outputs your fortune to the screen like so: "You will be a X in Y, and married to Z with N kids."
@@ -165,3 +165,16 @@ const tellFortune = (numberOfChildren, patnersName, geolocation, jobTitle) => {
 };
 console.log(tellFortune(2, "Amie", "New York", "programmer"));
 console.log(tellFortune(1, "Lucy", "London", "actor"));
+
+// 14.  Write a function `lengths` that accepts a single parameter as an argument, namely an array of strings. The function should return an array of numbers where each number is the length of the corresponding string.
+function lengths(arr) {
+  var result = [];
+  for (var i = 0; i < arr.length; i++) {
+    result.push(arr[i].length);
+  }
+  return result;
+}
+
+var arr = ["apple", "banana", "cherry", "date"];
+var result = lengths(arr);
+console.log(result); // output: [5, 6, 6, 4]
