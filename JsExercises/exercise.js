@@ -101,5 +101,18 @@ function checkPrime(num, div = 2) {
   return checkPrime(num, div + 1);
 }
 
-console.log(checkPrime(27)); // false
-console.log(checkPrime(19)); // true
+console.log(checkPrime(56)); // false
+console.log(checkPrime(89)); // true
+
+// 8. Write a function to find the count of a letter in a string
+function countLetter(str, letter) {
+  var count = 0;
+  for (var i = 0; i < str.length; i++) {
+    if (str[i] === letter) {
+      count++;
+    }
+  }
+  return count;
+}
+
+console.log(countLetter("Hello world", "o"));
