@@ -126,3 +126,10 @@ var arr2 = [4, 5];
 var arr3 = [6];
 var combined = combineArrays(arr1, arr2, arr3);
 console.log(combined); // output: [1, 2, 3, 4, 5, 6]
+
+// 11. Write a function to add unlimited numbers
+function addNumbers(...numbers) {
+  return numbers.reduce((sum, number) => sum + number, 0);
+}
+var sum = addNumbers(1, 2, 3, 4, 5);
+console.log(sum); // output: 15
