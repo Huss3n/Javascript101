@@ -133,3 +133,22 @@ function addNumbers(...numbers) {
 }
 var sum = addNumbers(1, 2, 3, 4, 5);
 console.log(sum); // output: 15
+
+// 11. Write a function to calculate compound interest based on the principle amount
+function calculateCompoundInterest(principal, rate, years) {
+  var n = 12; // number of times interest is compounded per year
+  var r = rate / n; // interest rate per compounding period
+  var t = years * n; // total number of compounding periods
+  var amount = principal * (1 + r) ** t; // final amount after compound interest
+  return amount;
+}
+
+console.log(calculateCompoundInterest(1000, 0.05, 5));
+
+// 12 . Flatten array of arrays using JavaScript reduce
+function flattenArray(arr) {
+  return arr.reduce((acc, val) => acc.concat(Array.isArray(val) ? flattenArray(val) : val), []);
+}
+var arr = [1, [2, [3, 4], 5], 6];
+var flattened = flattenArray(arr);
+console.log(flattened); // output: [1, 2, 3, 4, 5, 6]
