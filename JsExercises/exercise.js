@@ -486,3 +486,31 @@ function openOrSenior(data) {
     }
   });
 }
+
+/*
+Given the triangle of consecutive odd numbers:
+
+             1
+          3     5
+       7     9    11
+   13    15    17    19
+21    23    25    27    29
+...
+Calculate the sum of the numbers in the nth row of this triangle (starting at index 1) e.g.: (Input --> Output)
+
+1 -->  1
+2 --> 3 + 5 = 8 */
+
+function sumOfNthRow(n) {
+  let sum = 0;
+  let start = 1 + 2 * (((n - 1) * n) / 2); // formula to calculate the starting number of the nth row
+  for (let i = 0; i < n; i++) {
+    sum += start + 2 * i;
+  }
+  return sum;
+}
+
+// Example usage
+console.log(sumOfNthRow(1)); // Output: 1
+console.log(sumOfNthRow(2)); // Output: 8
+console.log(sumOfNthRow(3)); // Output: 24
