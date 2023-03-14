@@ -61,3 +61,11 @@ const calcInterest = (principle, rate, time) => {
 };
 
 console.log(calcInterest(2000, 5, 2));
+
+// 5. Write a function to generate a random number
+const randomNum = () => {
+  let num = Math.trunc(Math.random() * 10);
+  return num;
+};
+
+console.log(randomNum());
