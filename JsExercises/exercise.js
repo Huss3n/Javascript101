@@ -1685,3 +1685,29 @@ The numbers may be way very large
 Answer should be returned as a string
 The returned "number" should not start with zeros e.g. 0123 is invalid
 Note: 100 randomly generated tests! */
+
+function multiplyStrings(num1, num2) {
+  const len1 = num1.length;
+  const len2 = num2.length;
+  const result = Array(len1 + len2).fill(0);
+  let carry = 0;
+
+  for (let i = len1 - 1; i >= 0; i--) {
+    let digit1 = parseInt(num1[i]);
+
+    for (let j = len2 - 1; j >= 0; j--) {
+      let digit2 = parseInt(num2[j]);
+
+      let product = digit1 * digit2 + carry + result[i + j + 1];
+      carry = Math.floor(product / 10);
+      result[i + j + 1] = product % 10;
+    }
+
+    result[i] += carry;
+    carry = 0;
+  }
+
+  let finalResult = result.join("").replace(/^0+/, "");
+
+  return finalResult === "" ? "0" : finalResult;
+}
