@@ -1656,3 +1656,22 @@ Your algorithm must output the exact integer answer, to full precision. Also, it
 
 HINT I: Can you rearrange the equation fib(n + 2) = fib(n + 1) + fib(n) to find fib(n) if you already know fib(n + 1) and fib(n + 2)? Use this to reason what value fib has to have for negative values.
  */
+function fib(n) {
+  if (n === 0) {
+    return 0n;
+  } else if (n === 1 || n === -1) {
+    return 1n;
+  }
+
+  let a = 0n;
+  let b = 1n;
+  let sign = n < 0 && n % 2 === 0 ? -1n : 1n;
+
+  for (let i = 2; i <= Math.abs(n); i++) {
+    let temp = b;
+    b = a + b;
+    a = temp;
+  }
+
+  return sign * b;
+}
