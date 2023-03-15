@@ -1685,18 +1685,17 @@ The numbers may be way very large
 Answer should be returned as a string
 The returned "number" should not start with zeros e.g. 0123 is invalid
 Note: 100 randomly generated tests! */
-
-function multiplyStrings(num1, num2) {
-  const len1 = num1.length;
-  const len2 = num2.length;
+function multiply(a, b) {
+  const len1 = a.length;
+  const len2 = b.length;
   const result = Array(len1 + len2).fill(0);
   let carry = 0;
 
   for (let i = len1 - 1; i >= 0; i--) {
-    let digit1 = parseInt(num1[i]);
+    let digit1 = parseInt(a[i]);
 
     for (let j = len2 - 1; j >= 0; j--) {
-      let digit2 = parseInt(num2[j]);
+      let digit2 = parseInt(b[j]);
 
       let product = digit1 * digit2 + carry + result[i + j + 1];
       carry = Math.floor(product / 10);
@@ -1711,3 +1710,35 @@ function multiplyStrings(num1, num2) {
 
   return finalResult === "" ? "0" : finalResult;
 }
+
+/**
+ Rectangle Rotation
+ Task
+A rectangle with sides equal to even integers a and b is drawn on the Cartesian plane. Its center (the intersection point of its diagonals) coincides with the point (0, 0), but the sides of the rectangle are not parallel to the axes; instead, they are forming 45 degree angles with the axes.
+
+How many points with integer coordinates are located inside the given rectangle (including on its sides)?
+
+Example
+For a = 6 and b = 4, the output should be 23
+
+The following picture illustrates the example, and the 23 points are marked green.
+
+
+
+Input/Output
+[input] integer a
+
+A positive even integer.
+
+Constraints: 2 ≤ a ≤ 10000.
+
+[input] integer b
+
+A positive even integer.
+
+Constraints: 2 ≤ b ≤ 10000.
+
+[output] an integer
+
+The number of inner points with integer coordinates.
+ */
