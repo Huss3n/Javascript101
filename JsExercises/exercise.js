@@ -1542,3 +1542,39 @@ The 20 smallest Hamming numbers are given in the Example test fixture.
 
 Your code should be able to compute the first 5 000 ( LC: 400, Clojure: 2 000, Haskell: 12 691, NASM, C, D, C++, Go and Rust: 13 282 ) Hamming numbers without timing out.
  */
+
+function hamming(n) {
+  // Initialize an array to store the Hamming numbers
+  const hammingNums = [1];
+
+  // Initialize the indices for 2, 3, and 5
+  let index2 = 0,
+    index3 = 0,
+    index5 = 0;
+
+  // Loop until we have computed the nth Hamming number
+  while (hammingNums.length < n) {
+    // Compute the next candidate Hamming numbers
+    const nextNum2 = hammingNums[index2] * 2;
+    const nextNum3 = hammingNums[index3] * 3;
+    const nextNum5 = hammingNums[index5] * 5;
+
+    // Choose the smallest candidate and add it to the array
+    const nextNum = Math.min(nextNum2, nextNum3, nextNum5);
+    hammingNums.push(nextNum);
+
+    // Update the indices for the chosen candidate
+    if (nextNum === nextNum2) {
+      index2++;
+    }
+    if (nextNum === nextNum3) {
+      index3++;
+    }
+    if (nextNum === nextNum5) {
+      index5++;
+    }
+  }
+
+  // Return the nth Hamming number
+  return hammingNums[n - 1];
+}
