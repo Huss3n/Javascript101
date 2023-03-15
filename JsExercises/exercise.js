@@ -1442,3 +1442,22 @@ Sample Output 0
 Explanation 0
 
 Given list is . The maximum score is , second maximum is . Hence, we print  as the runner-up score. */
+
+function findRunnerUp(n, arr) {
+  let max = -Infinity;
+  let runnerUp = -Infinity;
+
+  for (let i = 0; i < n; i++) {
+    if (arr[i] > max) {
+      runnerUp = max;
+      max = arr[i];
+    } else if (arr[i] > runnerUp && arr[i] < max) {
+      runnerUp = arr[i];
+    }
+  }
+
+  return runnerUp;
+}
+
+// Example usage:
+console.log(findRunnerUp(5, [2, 3, 6, 6, 5])); // Output: 5
