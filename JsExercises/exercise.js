@@ -1396,3 +1396,25 @@ When we sum the floating-point numbers  and , we get .
 When we concatenate HackerRank with is the best place to learn and practice coding!, we get HackerRank is the best place to learn and practice coding!.
 
 You will not pass this challenge if you attempt to assign the Sample Case values to your variables instead of following the instructions above and reading input from stdin. */
+
+function processData(input) {
+  // Split the input by newline character into an array
+  const inputArr = input.split("\n");
+
+  // Parse the integers and floating point number from the input
+  const i = parseInt(inputArr[0]);
+  const d = parseFloat(inputArr[1]);
+
+  // Get the string from the input
+  const s = inputArr[2];
+
+  // Perform the required operations
+  const sumInt = i + 4;
+  const sumDouble = (d + 4).toFixed(1);
+  const concatStr = "HackerRank " + s;
+
+  // Print the results to console
+  console.log(sumInt);
+  console.log(sumDouble);
+  console.log(concatStr);
+}
