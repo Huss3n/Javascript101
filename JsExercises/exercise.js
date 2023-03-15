@@ -1961,3 +1961,18 @@ Write a function expand that takes in an expression with a single, one character
 The expanded form should be returned as a string in the form ax^b+cx^d+ex^f... where a, c, and e are the coefficients of the term, x is the original one character variable that was passed in the original expression and b, d, and f, are the powers that x is being raised to in each term and are in decreasing order.
 
 If the coefficient of a term is zero, the term should not be included. If the coefficient of a term is one, the coefficient should not be included. If the coefficient of a term is -1, only the "-" should be included. If the power of the term is 0, only the coefficient should be included. If the power of the term is 1, the caret and power should be excluded. */
+
+/*
+How many are smaller than me II?
+DESCRIPTION:
+This is a hard version of How many are smaller than me?. If you have troubles solving this one, have a look at the easier kata first.
+
+Write
+
+function smaller(arr)
+that given an array arr, you have to return the amount of numbers that are smaller than arr[i] to the right.
+
+For example:
+
+smaller([5, 4, 3, 2, 1]) === [4, 3, 2, 1, 0]
+smaller([1, 2, 0]) === [1, 1, 0] */
