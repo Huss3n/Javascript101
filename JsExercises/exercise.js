@@ -2486,3 +2486,9 @@ XO("xooxx") => false
 XO("ooxXm") => true
 XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
 XO("zzoo") => false */
+
+function XO(str) {
+  const xCount = (str.match(/x/gi) || []).length;
+  const oCount = (str.match(/o/gi) || []).length;
+  return xCount === oCount;
+}
