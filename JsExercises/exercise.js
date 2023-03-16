@@ -2085,6 +2085,50 @@ The expanded form should be returned as a string in the form ax^b+cx^d+ex^f... w
 
 If the coefficient of a term is zero, the term should not be included. If the coefficient of a term is one, the coefficient should not be included. If the coefficient of a term is -1, only the "-" should be included. If the power of the term is 0, only the coefficient should be included. If the power of the term is 1, the caret and power should be excluded. */
 
+function expand(expr) {
+  const [match, a, b, n] = expr.match(/\((-?\d*)([a-z])([+|-]\d+)\)\^(\d+)/);
+  const c = binomial(n);
+  let result = '';
+
+  for (let i = 0; i <= n; i++) {
+    const coefficient = c[i] * Math.pow(a, n - i) * Math.pow(b, i);
+    const power = n - i;
+    if (coefficient === 0) continue;
+    if (i === 0) {
+      result += `${coefficient}`;
+    } else if (i === 1) {
+      if (coefficient === 1) {
+        result += `+${b}`;
+      } else if (coefficient === -1) {
+        result += `-${b}`;
+      } else {
+        result += `${coefficient}${b}`;
+      }
+    } else {
+      if (coefficient === 1) {
+        result += `+${b}^${power}`;
+      } else if (coefficient === -1) {
+        result += `-${b}^${power}`;
+      } else {
+        result += `${coefficient}${b}^${power}`;
+      }
+    }
+  }
+
+  return result.startsWith('+') ? result.substring(1) : result;
+}
+
+function binomial(n) {
+  const c = [1];
+  for (let i = 0; i < n; i++) {
+    c.push(0);
+    for (let j = i + 1; j > 0; j--) {
+      c[j] += c[j - 1];
+    }
+  }
+  return c;
+}
+
 /*
 How many are smaller than me II?
 DESCRIPTION:
