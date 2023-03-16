@@ -1952,72 +1952,73 @@ The above code would set register a to 5, increase its value by 1, calls the sub
  */
 
 function assemblerInterpreter(program) {
-  const instructions = program.split('\n')
-    .map(line => line.trim())
-    .filter(line => line !== '' && !line.startsWith(';'));
+  const instructions = program
+    .split("\n")
+    .map((line) => line.trim())
+    .filter((line) => line !== "" && !line.startsWith(";"));
   const labels = findLabels(instructions);
   const registers = new Map();
-  let output = '';
+  let output = "";
   let ip = 0;
   while (ip < instructions.length) {
     const instruction = instructions[ip];
     const tokens = instruction.split(/\s+/);
     switch (tokens[0]) {
-      case 'mov':
+      case "mov":
         mov(tokens[1], tokens[2]);
         break;
-      case 'inc':
+      case "inc":
         inc(tokens[1]);
         break;
-      case 'dec':
+      case "dec":
         dec(tokens[1]);
         break;
-      case 'add':
+      case "add":
         add(tokens[1], tokens[2]);
         break;
-      case 'sub':
+      case "sub":
         sub(tokens[1], tokens[2]);
         break;
-      case 'mul':
+      case "mul":
         mul(tokens[1], tokens[2]);
         break;
-      case 'div':
+      case "div":
         div(tokens[1], tokens[2]);
         break;
-      case 'cmp':
+      case "cmp":
         cmp(tokens[1], tokens[2]);
         break;
-      case 'jmp':
+      case "jmp":
         ip = jump(labels, tokens[1]);
         break;
-      case 'jne':
+      case "jne":
         ip = jumpIfNotEqual(labels, tokens[1]);
         break;
-      case 'je':
+      case "je":
         ip = jumpIfEqual(labels, tokens[1]);
         break;
-      case 'jge':
+      case "jge":
         ip = jumpIfGreaterOrEqual(labels, tokens[1]);
         break;
-      case 'jg':
+      case "jg":
         ip = jumpIfGreater(labels, tokens[1]);
         break;
-      case 'jle':
+      case "jle":
         ip = jumpIfLessOrEqual(labels, tokens[1]);
         break;
-      case 'jl':
+      case "jl":
         ip = jumpIfLess(labels, tokens[1]);
         break;
-      case 'call':
+      case "call":
         ip = call(labels, tokens[1], ip);
         break;
-      case 'ret':
+      case "ret":
         ip = returnFromCall(ip);
         break;
-      case 'msg':
+      case "msg":
         output += getMessage(tokens.slice(1));
         break;
-      case 'end':
+      case "end":
         return output;
       default:
         throw new Error(`Unknown instruction: ${instruction}`);
@@ -2030,7 +2031,7 @@ function assemblerInterpreter(program) {
     const labels = new Map();
     let ip = 0;
     for (const instruction of instructions) {
-      if (instruction.endsWith(':')) {
+      if (instruction.endsWith(":")) {
         labels.set(instruction.slice(0, -1), ip);
       } else {
         ip++;
@@ -2073,8 +2074,7 @@ function assemblerInterpreter(program) {
 
   // function mul(dest, src
 
-
-/*
+  /*
 Binomial Expansion
 DESCRIPTION:
 The purpose of this kata is to write a program that can do some algebra.
@@ -2085,50 +2085,50 @@ The expanded form should be returned as a string in the form ax^b+cx^d+ex^f... w
 
 If the coefficient of a term is zero, the term should not be included. If the coefficient of a term is one, the coefficient should not be included. If the coefficient of a term is -1, only the "-" should be included. If the power of the term is 0, only the coefficient should be included. If the power of the term is 1, the caret and power should be excluded. */
 
-function expand(expr) {
-  const [match, a, b, n] = expr.match(/\((-?\d*)([a-z])([+|-]\d+)\)\^(\d+)/);
-  const c = binomial(n);
-  let result = '';
+  function expand(expr) {
+    const [match, a, b, n] = expr.match(/\((-?\d*)([a-z])([+|-]\d+)\)\^(\d+)/);
+    const c = binomial(n);
+    let result = "";
 
-  for (let i = 0; i <= n; i++) {
-    const coefficient = c[i] * Math.pow(a, n - i) * Math.pow(b, i);
-    const power = n - i;
-    if (coefficient === 0) continue;
-    if (i === 0) {
-      result += `${coefficient}`;
-    } else if (i === 1) {
-      if (coefficient === 1) {
-        result += `+${b}`;
-      } else if (coefficient === -1) {
-        result += `-${b}`;
+    for (let i = 0; i <= n; i++) {
+      const coefficient = c[i] * Math.pow(a, n - i) * Math.pow(b, i);
+      const power = n - i;
+      if (coefficient === 0) continue;
+      if (i === 0) {
+        result += `${coefficient}`;
+      } else if (i === 1) {
+        if (coefficient === 1) {
+          result += `+${b}`;
+        } else if (coefficient === -1) {
+          result += `-${b}`;
+        } else {
+          result += `${coefficient}${b}`;
+        }
       } else {
-        result += `${coefficient}${b}`;
-      }
-    } else {
-      if (coefficient === 1) {
-        result += `+${b}^${power}`;
-      } else if (coefficient === -1) {
-        result += `-${b}^${power}`;
-      } else {
-        result += `${coefficient}${b}^${power}`;
+        if (coefficient === 1) {
+          result += `+${b}^${power}`;
+        } else if (coefficient === -1) {
+          result += `-${b}^${power}`;
+        } else {
+          result += `${coefficient}${b}^${power}`;
+        }
       }
     }
+
+    return result.startsWith("+") ? result.substring(1) : result;
   }
 
-  return result.startsWith('+') ? result.substring(1) : result;
-}
-
-function binomial(n) {
-  const c = [1];
-  for (let i = 0; i < n; i++) {
-    c.push(0);
-    for (let j = i + 1; j > 0; j--) {
-      c[j] += c[j - 1];
+  function binomial(n) {
+    const c = [1];
+    for (let i = 0; i < n; i++) {
+      c.push(0);
+      for (let j = i + 1; j > 0; j--) {
+        c[j] += c[j - 1];
+      }
     }
+    return c;
   }
-  return c;
 }
-
 /*
 How many are smaller than me II?
 DESCRIPTION:
@@ -2143,3 +2143,17 @@ For example:
 
 smaller([5, 4, 3, 2, 1]) === [4, 3, 2, 1, 0]
 smaller([1, 2, 0]) === [1, 1, 0] */
+
+function smaller(arr) {
+  const result = [];
+  for (let i = 0; i < arr.length; i++) {
+    let count = 0;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[i]) {
+        count++;
+      }
+    }
+    result.push(count);
+  }
+  return result;
+}
