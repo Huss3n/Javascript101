@@ -1951,6 +1951,129 @@ The above code would set register a to 5, increase its value by 1, calls the sub
 
  */
 
+function assemblerInterpreter(program) {
+  const instructions = program.split('\n')
+    .map(line => line.trim())
+    .filter(line => line !== '' && !line.startsWith(';'));
+  const labels = findLabels(instructions);
+  const registers = new Map();
+  let output = '';
+  let ip = 0;
+  while (ip < instructions.length) {
+    const instruction = instructions[ip];
+    const tokens = instruction.split(/\s+/);
+    switch (tokens[0]) {
+      case 'mov':
+        mov(tokens[1], tokens[2]);
+        break;
+      case 'inc':
+        inc(tokens[1]);
+        break;
+      case 'dec':
+        dec(tokens[1]);
+        break;
+      case 'add':
+        add(tokens[1], tokens[2]);
+        break;
+      case 'sub':
+        sub(tokens[1], tokens[2]);
+        break;
+      case 'mul':
+        mul(tokens[1], tokens[2]);
+        break;
+      case 'div':
+        div(tokens[1], tokens[2]);
+        break;
+      case 'cmp':
+        cmp(tokens[1], tokens[2]);
+        break;
+      case 'jmp':
+        ip = jump(labels, tokens[1]);
+        break;
+      case 'jne':
+        ip = jumpIfNotEqual(labels, tokens[1]);
+        break;
+      case 'je':
+        ip = jumpIfEqual(labels, tokens[1]);
+        break;
+      case 'jge':
+        ip = jumpIfGreaterOrEqual(labels, tokens[1]);
+        break;
+      case 'jg':
+        ip = jumpIfGreater(labels, tokens[1]);
+        break;
+      case 'jle':
+        ip = jumpIfLessOrEqual(labels, tokens[1]);
+        break;
+      case 'jl':
+        ip = jumpIfLess(labels, tokens[1]);
+        break;
+      case 'call':
+        ip = call(labels, tokens[1], ip);
+        break;
+      case 'ret':
+        ip = returnFromCall(ip);
+        break;
+      case 'msg':
+        output += getMessage(tokens.slice(1));
+        break;
+      case 'end':
+        return output;
+      default:
+        throw new Error(`Unknown instruction: ${instruction}`);
+    }
+    ip++;
+  }
+  return -1;
+
+  function findLabels(instructions) {
+    const labels = new Map();
+    let ip = 0;
+    for (const instruction of instructions) {
+      if (instruction.endsWith(':')) {
+        labels.set(instruction.slice(0, -1), ip);
+      } else {
+        ip++;
+      }
+    }
+    return labels;
+  }
+
+  function getRegisterValue(regOrNum) {
+    if (/^-?\d+$/.test(regOrNum)) {
+      return parseInt(regOrNum);
+    } else {
+      const value = registers.get(regOrNum);
+      if (value === undefined) {
+        throw new Error(`Unknown register: ${regOrNum}`);
+      }
+      return value;
+    }
+  }
+
+  function mov(dest, src) {
+    registers.set(dest, getRegisterValue(src));
+  }
+
+  function inc(reg) {
+    registers.set(reg, (registers.get(reg) || 0) + 1);
+  }
+
+  function dec(reg) {
+    registers.set(reg, (registers.get(reg) || 0) - 1);
+  }
+
+  function add(dest, src) {
+    registers.set(dest, (registers.get(dest) || 0) + getRegisterValue(src));
+  }
+
+  function sub(dest, src) {
+    registers.set(dest, (registers.get(dest) || 0) - getRegisterValue(src));
+  }
+
+  // function mul(dest, src
+
+
 /*
 Binomial Expansion
 DESCRIPTION:
