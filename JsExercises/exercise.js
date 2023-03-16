@@ -2573,3 +2573,13 @@ digPow(92, 1) should return -1 since there is no k such as 9¹ + 2² equals 92 *
 digPow(695, 2) should return 2 since 6² + 9³ + 5⁴= 1390 = 695 * 2
 digPow(46288, 3) should return 51 since 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51
  */
+function digPow(n, p) {
+  // Convert n to an array of digits
+  let digits = Array.from(String(n), Number);
+  // Calculate the sum of the digits taken to the successive powers of p
+  let sum = digits.reduce((acc, digit, i) => acc + Math.pow(digit, p + i), 0);
+  // Calculate k as the integer division of sum by n
+  let k = sum / n;
+  // If k is an integer, return it, otherwise return -1
+  return Number.isInteger(k) ? k : -1;
+}
