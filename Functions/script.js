@@ -332,3 +332,17 @@ longest(a, b) -> "abcdefklmopqwxy"
 
 a = "abcdefghijklmnopqrstuvwxyz"
 longest(a, a) -> "abcdefghijklmnopqrstuvwxyz" */
+function longest(s1, s2) {
+  // Concatenate the two strings and convert to a Set to remove duplicates
+  const set = new Set(s1 + s2);
+
+  // Convert the Set back to an array, sort it, and join into a string
+  return Array.from(set).sort().join("");
+}
+
+const aa = "xyaabbbccccdefww";
+const bb = "xxxxyyyyabklmopq";
+console.log(longest(a, b)); // Output: "abcdefklmopqwxy"
+
+const cc = "abcdefghijklmnopqrstuvwxyz";
+console.log(longest(cc, cc)); // Output: "abcdefghijklmnopqrstuvwxyz"
