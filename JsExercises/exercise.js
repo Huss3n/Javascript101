@@ -2195,3 +2195,18 @@ triangle('RRR') == 'R'
 triangle('RGBG') == 'B'
 triangle('RBRGBRB') == 'G'
 triangle('RBRGBRBGGRRRBGBBBGG') == 'G' */
+function triangle(row) {
+  while (row.length > 1) {
+    let nextRow = "";
+    for (let i = 0; i < row.length - 1; i++) {
+      if (row[i] === row[i + 1]) {
+        nextRow += row[i];
+      } else {
+        let diff = "RGB".replace(row[i], "").replace(row[i + 1], "");
+        nextRow += diff;
+      }
+    }
+    row = nextRow;
+  }
+  return row;
+}
