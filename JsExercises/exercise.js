@@ -2429,3 +2429,27 @@ Example: (Input --> Output)
 isIsogram "Dermatoglyphics" = true
 isIsogram "moose" = false
 isIsogram "aba" = false */
+
+function isIsogram(str) {
+  // Convert string to lowercase to ignore letter case
+  str = str.toLowerCase();
+
+  // Create an object to keep track of letters
+  const letters = {};
+
+  // Loop through each character in the string
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+
+    // If the letter is already in the object, return false (not an isogram)
+    if (letters[char]) {
+      return false;
+    }
+
+    // Otherwise, add the letter to the object
+    letters[char] = true;
+  }
+
+  // If the loop completes without finding a repeat, return true (isogram)
+  return true;
+}
