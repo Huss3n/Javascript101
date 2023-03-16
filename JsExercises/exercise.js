@@ -2278,3 +2278,34 @@ Task
 You are at start location [0, 0] in mountain area of NxN and you can only move in one of the four cardinal directions (i.e. North, East, South, West). Return minimal number of climb rounds to target location [N-1, N-1]. Number of climb rounds between adjacent locations is defined as difference of location altitudes (ascending or descending).
 
 Location altitude is defined as an integer number (0-9). */
+function minimumClimb(arr) {
+  const n = arr.length;
+  const queue = [{ x: 0, y: 0, rounds: 0 }]; // start from (0,0) with 0 rounds
+  const visited = new Set(); // set to keep track of visited locations
+
+  while (queue.length > 0) {
+    const { x, y, rounds } = queue.shift(); // get the first element from the queue
+    if (x === n - 1 && y === n - 1) return rounds; // reached the target location, return rounds
+
+    const currentHeight = arr[x][y];
+    const neighbors = [
+      { x: x - 1, y: y, dir: "N" },
+      { x: x, y: y + 1, dir: "E" },
+      { x: x + 1, y: y, dir: "S" },
+      { x: x, y: y - 1, dir: "W" },
+    ];
+
+    for (const { x: nx, y: ny, dir } of neighbors) {
+      if (nx >= 0 && nx < n && ny >= 0 && ny < n) {
+        const neighborHeight = arr[nx][ny];
+        const diff = Math.abs(currentHeight - neighborHeight);
+        if (!visited.has(`${nx},${ny}`) && diff <= 1) {
+          queue.push({ x: nx, y: ny, rounds: rounds + diff }); // add the neighbor to the queue
+          visited.add(`${nx},${ny}`); // mark the neighbor as visited
+        }
+      }
+    }
+  }
+
+  return -1; // target location not reachable
+}
