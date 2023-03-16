@@ -2353,3 +2353,59 @@ And the following are invalid expressions
 Validation
 You do not need to worry about validation - you will only receive valid mathematical expressions following the above rules.
  */
+function calculate(expression) {
+  // Remove all whitespace from the expression
+  expression = expression.replace(/\s/g, "");
+
+  // Use a regular expression to split the expression into tokens
+  // Tokens can be numbers, operators, or parentheses
+  var tokens = expression.match(/(\d+\.\d+|\d+|[+\-*/()])/g);
+
+  // Evaluate the expression using a recursive function
+  function evaluate() {
+    var token = tokens.shift();
+
+    if (token == "(") {
+      // Evaluate the expression inside the parentheses recursively
+      var result = evaluate();
+
+      // Remove the closing parenthesis
+      tokens.shift();
+
+      return result;
+    } else {
+      // Parse the number from the token
+      var num = parseFloat(token);
+
+      // Check if the token is an operator
+      if (tokens[0] == "*" || tokens[0] == "/") {
+        // Evaluate the next term recursively
+        var nextNum = evaluate();
+
+        // Apply the operator
+        if (tokens[0] == "*") {
+          num *= nextNum;
+        } else {
+          num /= nextNum;
+        }
+      }
+
+      // Apply any remaining operators
+      while (tokens.length > 0 && (tokens[0] == "+" || tokens[0] == "-")) {
+        var operator = tokens.shift();
+        var nextNum = evaluate();
+
+        if (operator == "+") {
+          num += nextNum;
+        } else {
+          num -= nextNum;
+        }
+      }
+
+      return num;
+    }
+  }
+
+  // Call the recursive evaluate function to get the result
+  return evaluate();
+}
