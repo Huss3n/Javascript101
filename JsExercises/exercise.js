@@ -2230,3 +2230,45 @@ AAAB = 1
 BAAA = 4
 QUESTION = 24572
 BOOKKEEPER = 10743 */
+function triangle(row) {
+  while (row.length > 1) {
+    let nextRow = "";
+    for (let i = 0; i < row.length - 1; i++) {
+      if (row[i] === row[i + 1]) {
+        nextRow += row[i];
+      } else {
+        let diff = "RGB".replace(row[i], "").replace(row[i + 1], "");
+        nextRow += diff;
+      }
+    }
+    row = nextRow;
+  }
+  return row;
+}
+function factorial(n) {
+  let result = 1;
+  for (let i = 2; i <= n; i++) {
+    result *= i;
+  }
+  return result;
+}
+
+function wordRank(word) {
+  let count = {};
+  for (let i = 0; i < word.length; i++) {
+    let c = word[i];
+    count[c] = count[c] ? count[c] + 1 : 1;
+  }
+
+  let sorted = Object.keys(count).sort();
+  let index = 1;
+  for (let i = 0; i < sorted.length; i++) {
+    let c = sorted[i];
+    for (let j = 0; j < i; j++) {
+      let d = sorted[j];
+      index += count[d] * factorial(word.length - i - 1);
+    }
+    count[c]--;
+  }
+  return index;
+}
