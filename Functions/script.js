@@ -373,3 +373,47 @@ inorder and postorder consist of unique values.
 Each value of postorder also appears in inorder.
 inorder is guaranteed to be the inorder traversal of the tree.
 postorder is guaranteed to be the postorder traversal of the tree. */
+
+class TreeNode {
+  constructor(val) {
+    this.val = val;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+function buildTree(inorder, postorder) {
+  // Create a map to store the indices of values in the inorder array
+  const indexMap = new Map();
+  inorder.forEach((val, index) => {
+    indexMap.set(val, index);
+  });
+
+  function buildTreeHelper(start, end) {
+    if (start > end) {
+      // Reached a leaf node
+      return null;
+    }
+
+    // Create the root node using the last element in the postorder array
+    const rootVal = postorder.pop();
+    const root = new TreeNode(rootVal);
+
+    // Get the index of the root node in the inorder array
+    const rootIndex = indexMap.get(rootVal);
+
+    // Recursively build the left and right subtrees
+    root.right = buildTreeHelper(rootIndex + 1, end);
+    root.left = buildTreeHelper(start, rootIndex - 1);
+
+    return root;
+  }
+
+  return buildTreeHelper(0, inorder.length - 1);
+}
+
+const inorder = [9, 3, 15, 20, 7];
+const postorder = [9, 15, 7, 20, 3];
+
+const root = buildTree(inorder, postorder);
+console.log(root); // Output: TreeNode { val: 3, left: TreeNode { val: 9, left: null, right: null }, right: TreeNode { val: 20, left: TreeNode { val: 15, left: null, right: null }, right: TreeNode { val: 7, left: null, right: null } } }
