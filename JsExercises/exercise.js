@@ -2506,3 +2506,13 @@ Examples:(Input --> Output)
 625 --> 676
 114 --> -1 since 114 is not a perfect square
  */
+
+function findNextSquare(sq) {
+  const root = Math.sqrt(sq);
+  if (Number.isInteger(root)) {
+    const nextRoot = root + 1;
+    return nextRoot * nextRoot;
+  } else {
+    return -1;
+  }
+}
