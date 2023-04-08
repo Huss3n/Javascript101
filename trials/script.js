@@ -111,3 +111,61 @@ if (userNumber === guessedNumber) {
 } else {
   console.log("Too low");
 }
+
+// Control structures (if/else, switch):
+// 1.Write a JavaScript program that checks whether a given number is even or odd, and displays a message to the user accordingly.
+let number = 3456;
+if (number % 2) {
+  console.log(`${number} is odd`);
+} else {
+  console.log(`${number} is even`);
+}
+
+// 2. Write a JavaScript program that takes a string as input and reverses it. If the reversed string is the same as the original string, display a message indicating that the string is a palindrome.
+
+const isPalindrome = (string) => {
+  // convert to lowercase
+  string.toLowerCase();
+  let reversedString = string.split("").reverse().join("");
+  if (reversedString === string) {
+    console.log(`${string} is a palindrome`);
+  } else {
+    console.log(`${string} is not a palindrome`);
+  }
+  return reversedString;
+};
+console.log(isPalindrome("hussein"));
+console.log(isPalindrome("racecar"));
+
+// 3.Write a JavaScript program that takes a number as input and displays the name of the corresponding month. For example, if the input is 2, the program should display "February". Use a switch statement to implement this program.
+
+const month = 5;
+switch (month) {
+  case 1:
+    console.log("January");
+    break;
+  case 2:
+    console.log("February");
+    break;
+  case 3:
+    console.log("March");
+    break;
+  case 4:
+    console.log("April");
+    break;
+  default:
+    console.log("Enter a number between 1 and 4");
+    break;
+}
+
+// 4. Write a JavaScript program that takes three numbers as input and displays the largest of the three numbers. Use an if/else statement to implement this program.
+const largestNum = (num1, num2, num3) => {
+  if (num1 > num2 && num1 > num3) {
+    console.log(`${num1} is the largest number`);
+  } else if (num2 > num1 && num2 > num3) {
+    console.log(`${num2} is the largest number`);
+  } else {
+    console.log(`${num3} is the largest number`);
+  }
+};
+largestNum(2, 8, 14);
