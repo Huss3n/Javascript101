@@ -48,3 +48,66 @@ console.log(typeof convertedNumber);
 let str = "20";
 let conStr = parseInt(str);
 console.log(typeof conStr);
+
+// <----------intermediate-level questions---------->
+// 1. Write a JavaScript function that takes two numbers as arguments and returns their sum.
+function takeTwoNums(num1, num2) {
+  return num1 + num2;
+}
+console.log(takeTwoNums(20, 40));
+console.log(takeTwoNums(30, 70));
+
+// 2. Write a JavaScript function that takes a string as an argument and returns its length.
+const countStrings = (word) => {
+  return word.length;
+};
+console.log(countStrings("My names is hussein"));
+
+// 3. Write a JavaScript program that asks the user for their name and age, and then displays a message that says "Hello [name], you are [age] years old!".
+const nameAndAge = (firstName, age) => {
+  return `Hello ${firstName}, you are ${age} years old!`;
+};
+console.log(nameAndAge("Hussein", 23));
+
+// 4. Write a JavaScript program that creates an array of numbers from 1 to 10, and then uses a loop to calculate and display the sum of those numbers.
+let numbersArray = [];
+for (i = 1; i <= 10; i++) {
+  numbersArray.push(i);
+}
+let total = 0;
+for (i = 1; i <= numbersArray.length; i++) {
+  total += i;
+}
+console.log(numbersArray);
+console.log(total);
+
+// 5.Write a JavaScript program that uses a loop to display the even numbers between 1 and 20.
+for (i = 1; i <= 20; i++) {
+  if (i % 2 === 0) {
+    console.log(i);
+  }
+}
+
+// 6. Write a JavaScript program that creates an object with three properties (name, age, and email), and then displays the values of those properties in the console.
+const details = {
+  name: "Hussein",
+  age: 10,
+  email: "user@email.com",
+};
+console.log(details.name);
+console.log(details.age);
+console.log(details.email);
+
+// 7. Write a JavaScript program that uses the "Math.random()" function to generate a random number between 1 and 100, and then asks the user to guess that number. If the user's guess is too high or too low, the program should display a message to let them know.
+// let userNumber = parseInt(prompt("Guess a number from 1 - 100"));
+// console.log(typeof userNumber);
+let userNumber = 10;
+let guessedNumber = Math.trunc(Math.random() * 100);
+console.log(guessedNumber);
+if (userNumber === guessedNumber) {
+  console.log(`You win!, the right number is ${guessedNumber}`);
+} else if (userNumber > guessedNumber) {
+  console.log("Too high");
+} else {
+  console.log("Too low");
+}
