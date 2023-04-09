@@ -65,11 +65,11 @@ const inputClosePin = document.querySelector(".form__input--pin");
 /////////////////////////////////////////////////
 // LECTURES
 
-const currencies = new Map([
-  ["USD", "United States dollar"],
-  ["EUR", "Euro"],
-  ["GBP", "Pound sterling"],
-]);
+// const currencies = new Map([
+//   ["USD", "United States dollar"],
+//   ["EUR", "Euro"],
+//   ["GBP", "Pound sterling"],
+// ]);
 
 // const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
@@ -153,4 +153,27 @@ movements.forEach(function (funds, currentIndex, currentArray) {
   } else {
     console.log(`Transaction ${currentIndex}:: You withdrew ${Math.abs(funds)}`);
   }
+});
+
+// <----------- FOR EACH IN MAPS AND SETS ------->
+// console.log("<----- FOR EACH IN MAPS AND SETS ------->");
+const currencies = new Map([
+  ["USD", "United States dollar"],
+  ["EUR", "Euro"],
+  ["GBP", "Pound sterling"],
+]);
+
+// using a foreach on a map
+console.log("<--- MAP --->");
+currencies.forEach(function (value, key, map) {
+  console.log(`${key}: ${value}`);
+});
+
+// using for each on a set
+// sets do not have keys
+const newSet = new Set(["USD", "EUR", "POUND", "USD", "YEN", "USD", "EUR", "YEN"]);
+console.log(newSet); // eleminates duplicates
+newSet.forEach(function (value, _, map) {
+  // the _ refers o a throwaway var i.e its not a must to have it
+  console.log(`${value}: ${value}`);
 });
