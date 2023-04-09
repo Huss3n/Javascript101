@@ -102,3 +102,12 @@ console.log(testArray); // does not have the last element
 const arr2 = ["f", "e", "d", "c", "b", "a"];
 console.log(arr2.reverse());
 console.log(arr2); // reverse does mutate the original array
+
+// <----- CONCAT ------>
+const numbers = [1, 2, 4, 3, 5, 3, 9];
+let mixed = testArray.concat(numbers); // does not mutate original array
+console.log(mixed);
+
+// <-----JOIN ----->
+const joinedArray = mixed.join("-");
+console.log(joinedArray);
