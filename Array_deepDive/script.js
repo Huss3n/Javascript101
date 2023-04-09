@@ -74,3 +74,31 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+// <----- SLICE METHOD ----->
+let testArray = ["a", "b", "c", "d", "e", "f", "g"];
+// the slice method
+// its given an index as a position on where to start
+// you can also define the end parameter for the end of the array
+console.log(testArray.slice(2, 4));
+
+// -1 is always the last item in an array
+console.log(testArray.slice(-1));
+
+console.log(testArray.slice(1, -2)); // leaves out the last two array items
+// we can also use the slice method to create a shallow copy of an array
+console.log(testArray.slice()); // without passing any arguments it will get all the items
+
+// <----- SPLICE METHOD ----->
+// splice actually mutates the array. It extracts the said items then after this deletes them from  the original array
+console.log(testArray.splice(2, 3)); // 3 items after position 2 are removed
+console.log(testArray);
+
+// removing the last element
+console.log(testArray.splice(-1));
+console.log(testArray); // does not have the last element
+
+//<------ REVERSE ------>
+const arr2 = ["f", "e", "d", "c", "b", "a"];
+console.log(arr2.reverse());
+console.log(arr2); // reverse does mutate the original array
