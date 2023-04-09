@@ -111,3 +111,19 @@ console.log(mixed);
 // <-----JOIN ----->
 const joinedArray = mixed.join("-");
 console.log(joinedArray);
+
+//<------- THE NEW AT METHOD ------>
+const atArr = [12, 10, 49, 30, 20];
+
+// traditional ways of getting the last element
+console.log(atArr[atArr.length - 1]); // 20
+console.log(atArr.slice(-1)[0]);
+
+// using the new at method
+// at method is better for method chaining
+console.log(atArr.at(-1)); // 20
+console.log(atArr.at(-2)); // 30
+
+// the at method also works on strings
+const fname = "Muktar";
+console.log(fname.at(-1)); // r
