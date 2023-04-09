@@ -71,7 +71,7 @@ const currencies = new Map([
   ["GBP", "Pound sterling"],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
@@ -127,3 +127,30 @@ console.log(atArr.at(-2)); // 30
 // the at method also works on strings
 const fname = "Muktar";
 console.log(fname.at(-1)); // r
+
+// <------ LOOPING THROUGH ARRAYS ------>
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// loop through the above array
+
+// USING A FOR LOOP
+console.log("-------- FOR LOOP ---------");
+for (const [i, movement] of movements.entries()) {
+  if (movement > 0) {
+    console.log(`Transaction ${i + 1}: You deposited ${movement}`);
+  } else {
+    console.log(`Transaction ${i + 1}: You withdrew ${Math.abs(movement)}`);
+  }
+}
+
+console.log("---------- FOREACH ---------");
+// USING FOR EACH
+// a for each is a higher order function that requires a call back function
+// in a foreach, the first element should always come first, then the index and lastly the array
+// remember you cannot break out if a foreach loop. the continue and break methods do not work here
+movements.forEach(function (funds, currentIndex, currentArray) {
+  if (funds > 0) {
+    console.log(`Transaction ${currentIndex}: You deposited ${funds}`);
+  } else {
+    console.log(`Transaction ${currentIndex}:: You withdrew ${Math.abs(funds)}`);
+  }
+});
