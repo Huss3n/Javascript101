@@ -202,3 +202,8 @@ const movementToUsd = movements.map(function (mov) {
 
 console.log(movements);
 console.log(movementToUsd);
+
+const newArray = [];
+
+for (const mov of movements) newArray.push(mov * eurToUsd);
+console.log(newArray);
