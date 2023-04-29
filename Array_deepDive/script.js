@@ -194,3 +194,11 @@ newSet.forEach(function (value, _, map) {
   // the _ refers o a throwaway var i.e its not a must to have it
   console.log(`${value}: ${value}`);
 });
+
+const eurToUsd = 1.1;
+const movementToUsd = movements.map(function (mov) {
+  return mov * eurToUsd;
+});
+
+console.log(movements);
+console.log(movementToUsd);
