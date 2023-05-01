@@ -207,3 +207,9 @@ const newArray = [];
 
 for (const mov of movements) newArray.push(mov * eurToUsd);
 console.log(newArray);
+
+if (eurToUsd > 2) {
+  console.log("above");
+} else {
+  console.log("below");
+}
