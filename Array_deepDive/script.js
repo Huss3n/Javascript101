@@ -207,3 +207,8 @@ const newArray = [];
 
 for (const mov of movements) newArray.push(mov * eurToUsd);
 console.log(newArray);
+
+const arr = [12, 30, 50];
+arr.forEach(function (num) {
+  console.log(num);
+});
