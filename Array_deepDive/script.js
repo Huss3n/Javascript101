@@ -212,3 +212,9 @@ const arr = [12, 30, 50];
 arr.forEach(function (num) {
   console.log(num);
 });
+
+// arrow function
+const numberss = [12, 20, 30, 60, 40];
+const numbersAbove20 = numberss.filter(function (number) {
+  return number > 20;
+});
