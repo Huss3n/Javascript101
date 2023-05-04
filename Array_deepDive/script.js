@@ -203,22 +203,22 @@ const movementToUsd = movements.map(function (mov) {
 console.log(movements);
 console.log(movementToUsd);
 
-const newArray = [];
+// const newArray = [];
 
-for (const mov of movements) newArray.push(mov * eurToUsd);
-console.log(newArray);
+// for (const mov of movements) newArray.push(mov * eurToUsd);
+// console.log(newArray);
 
-const arr = [12, 30, 50];
-arr.forEach(function (num) {
-  console.log(num);
-});
-
-// arrow function
-const numberss = [12, 20, 30, 60, 40];
-// const numbersAbove20 = numberss.filter(function (number) {
-//   return number > 20;
+// const arr = [12, 30, 50];
+// arr.forEach(function (num) {
+//   console.log(num);
 // });
 
-const numbersAbove20 = numberss.filter(() => {
-  number > 20;
-});
+// // arrow function
+// const numberss = [12, 20, 30, 60, 40];
+// // const numbersAbove20 = numberss.filter(function (number) {
+// //   return number > 20;
+// // });
+
+// const numbersAbove20 = numberss.filter(() => {
+//   number > 20;
+// });
