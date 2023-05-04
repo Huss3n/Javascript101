@@ -87,3 +87,12 @@ const reduceNum = addNum.reduce((num, total) => {
   return num + total;
 }, 4);
 console.log(reduceNum);
+
+// concat method
+/*
+The concat() method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
+*/
+const cars = ["toyota", "vw", "mercedes"];
+const cars1 = ["nissan", "hyundai", "volvo"];
+const combined = cars.concat(cars1);
+console.log(combined);
