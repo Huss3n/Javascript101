@@ -25,3 +25,7 @@ console.log(arr1.indexOf("hussein"));
 const animals = ["ant", "bison", "camel", "duck", "elephant"];
 const newAnimals = animals.slice(1, 4);
 console.log(newAnimals);
+
+// reverse method -> reverse the array
+const reversed = animals.reverse();
+console.log(reversed);
