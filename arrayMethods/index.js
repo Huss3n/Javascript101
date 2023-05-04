@@ -76,3 +76,14 @@ const filterNum = testNum.filter((num) => num > 40);
 console.log(filterNum);
 console.log(mapNum);
 console.log(evenArray);
+
+// reduce method
+/*
+The reduce() method executes a user-supplied "reducer" callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a single value.
+*/
+
+const addNum = [12, 34, 211, 45, 23, 45];
+const reduceNum = addNum.reduce((num, total) => {
+  return num + total;
+}, 4);
+console.log(reduceNum);
