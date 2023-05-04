@@ -37,3 +37,17 @@ const updatedWords = words.filter(function (word) {
   return word.length > 6;
 });
 console.log(updatedWords);
+
+// map method ->  creates a new array with the conditions
+
+const array1 = [1, 4, 9, 16];
+const array2 = array1.map(function (num) {
+  return num * 3;
+});
+console.log(array2);
+
+// map with comparison operators returns a boolean
+const array3 = words.map(function (word) {
+  return word.length > 5;
+});
+console.log(array3);
