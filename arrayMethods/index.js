@@ -96,3 +96,15 @@ const cars = ["toyota", "vw", "mercedes"];
 const cars1 = ["nissan", "hyundai", "volvo"];
 const combined = cars.concat(cars1);
 console.log(combined);
+
+// every method
+/*
+The every() method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value.
+*/
+
+isAbove40 = (num) => num > 40;
+
+console.log(addNum.every(isAbove40)); // returns a boolean
+
+myColor = ["Red", "Green", "White", "Black"];
+console.log(myColor.join(""));
