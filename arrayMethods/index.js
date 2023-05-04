@@ -61,3 +61,18 @@ const letters1 = letters.forEach((letter) => {
 
 const firstLetter = letters.shift();
 console.log("first " + firstLetter);
+console.log(letters.indexOf("c"));
+
+// some method
+/*
+The some() method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.
+*/
+
+const testNum = [23, 40, 34, 23, 87, 90, 23, 29, 38, 48];
+const evenArray = testNum.some((num) => num % 2 === 0);
+const mapBool = testNum.map((num) => num > 12); // returns boolean
+const mapNum = testNum.map((num) => num + 12); // returns elements
+const filterNum = testNum.filter((num) => num > 40);
+console.log(filterNum);
+console.log(mapNum);
+console.log(evenArray);
