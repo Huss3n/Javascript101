@@ -51,3 +51,13 @@ const array3 = words.map(function (word) {
   return word.length > 5;
 });
 console.log(array3);
+
+// forEach method -> loops through the array and returns a new array with the specified conditions
+// The forEach() method executes a provided function once for each array element.
+const letters = ["a", "b", "c", "d", "e", "f", "g"];
+const letters1 = letters.forEach((letter) => {
+  console.log(letter);
+});
+
+const firstLetter = letters.shift();
+console.log("first " + firstLetter);
