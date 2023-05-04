@@ -29,3 +29,11 @@ console.log(newAnimals);
 // reverse method -> reverse the array
 const reversed = animals.reverse();
 console.log(reversed);
+
+// filter method -> creates a shallow copy of array with the specified conditions
+const words = ["spray", "limit", "elite", "exuberant", "destruction", "present"];
+// filter with word legnth
+const updatedWords = words.filter(function (word) {
+  return word.length > 6;
+});
+console.log(updatedWords);
