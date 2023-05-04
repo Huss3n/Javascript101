@@ -417,3 +417,24 @@ const postorder = [9, 15, 7, 20, 3];
 
 const root = buildTree(inorder, postorder);
 console.log(root); // Output: TreeNode { val: 3, left: TreeNode { val: 9, left: null, right: null }, right: TreeNode { val: 20, left: TreeNode { val: 15, left: null, right: null }, right: TreeNode { val: 7, left: null, right: null } } }
+
+// Create a global property with `var`
+var x = 10;
+
+function createFunction1() {
+  const x = 20;
+  return new Function("return x;"); // this `x` refers to global `x`
+}
+
+function createFunction2() {
+  const x = 20;
+  function f() {
+    return x; // this `x` refers to the local `x` above
+  }
+  return f;
+}
+
+const f1 = createFunction1();
+console.log(f1()); // 10
+const f2 = createFunction2();
+console.log(f2()); // 20
