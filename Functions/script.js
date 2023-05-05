@@ -497,6 +497,7 @@ function loop(x) {
 }
 loop(0);
 
+// closures -> nested function. func in a func
 function addSquares(a, b) {
   function square(x) {
     return x * x;
@@ -507,3 +508,14 @@ function addSquares(a, b) {
 console.log(addSquares(2, 3)); // 13
 console.log(addSquares(3, 4)); // 25
 console.log(addSquares(4, 5)); // 41
+
+// closure functions
+function a() {
+  let num = 1; // can be accessed by func b and c
+  function b() {
+    let num = 1; // can be accessed by func c
+    function c() {
+      let num = 1; // only accessed by func c
+    }
+  }
+}
