@@ -438,3 +438,18 @@ const f1 = createFunction1();
 console.log(f1()); // 10
 const f2 = createFunction2();
 console.log(f2()); // 20
+
+function map(f, a) {
+  const result = new Array(a.length);
+  for (let i = 0; i < a.length; i++) {
+    result[i] = f(a[i]);
+  }
+  return result;
+}
+
+const cube = function (x) {
+  return x * x * x;
+};
+
+const numbers = [0, 1, 2, 5, 10];
+console.log(map(cube, numbers)); // [0, 1, 8, 125, 1000]
