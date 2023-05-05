@@ -451,5 +451,12 @@ const cube = function (x) {
   return x * x * x;
 };
 
-const numbers = [0, 1, 2, 5, 10];
+// const numbers = [0, 1, 2, 5, 10];
 console.log(map(cube, numbers)); // [0, 1, 8, 125, 1000]
+
+let myFuncs;
+if (num === 0) {
+  myFunc = function (theObject) {
+    theObject.make = "Toyota";
+  };
+}
