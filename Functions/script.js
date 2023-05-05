@@ -535,3 +535,12 @@ const pet = function (name) {
 };
 
 console.log(pet("Bunny"));
+
+// arguments object
+function concat(separator) {
+  let words = "";
+  for (let i = 1; i <= arguments.length; i++) {
+    words += arguments[i] + separator;
+  }
+  return words;
+}
