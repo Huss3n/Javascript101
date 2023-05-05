@@ -537,10 +537,26 @@ const pet = function (name) {
 console.log(pet("Bunny"));
 
 // arguments object
-function concat(separator) {
+function myConcat(separator) {
   let words = "";
   for (let i = 1; i <= arguments.length; i++) {
     words += arguments[i] + separator;
   }
   return words;
 }
+
+console.log(myConcat(", ", "red", "orange", "blue"));
+// "red, orange, blue, "
+
+console.log(myConcat("; ", "elephant", "giraffe", "lion", "cheetah"));
+// "elephant; giraffe; lion; cheetah; "
+
+console.log(myConcat(". ", "sage", "basil", "oregano", "pepper", "parsley"));
+// "sage. basil. oregano. pepper. parsley. "
+
+// default parameters
+function multiply(a, b = 1) {
+  return a * b;
+}
+
+console.log(multiply(5)); // 5
