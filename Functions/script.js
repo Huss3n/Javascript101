@@ -206,7 +206,7 @@ const tax = (rate) => {
 console.log(tax(20)(200));
 
 // <----- CODING CHALLENGE ----->
-/* 
+/*
 Let's build a simple poll app!
 A poll has a question, an array of options from which people can choose, and an array with the number of replies for each option. This data is stored in the starter object below.
 Here are your tasks:
@@ -218,10 +218,10 @@ Here are your tasks:
         2: Rust
         3: C++
         (Write option number)
-  
+
   1.2. Based on the input number, update the answers array. For example, if the option is 3, increase the value AT POSITION 3 of the array by 1. Make sure to check if the input is a number and if the number makes sense (e.g answer 52 wouldn't make sense, right?)
 2. Call this method whenever the user clicks the "Answer poll" button.
-3. Create a method 'displayResults' which displays the poll results. The method takes a string as an input (called 'type'), which can be either 'string' or 'array'. If type is 'array', simply display the results array as it is, using console.log(). This should be the default option. If type is 'string', display a string like "Poll results are 13, 2, 4, 1". 
+3. Create a method 'displayResults' which displays the poll results. The method takes a string as an input (called 'type'), which can be either 'string' or 'array'. If type is 'array', simply display the results array as it is, using console.log(). This should be the default option. If type is 'string', display a string like "Poll results are 13, 2, 4, 1".
 4. Run the 'displayResults' method at the end of each 'registerNewAnswer' method call.
 HINT: Use many of the tools you learned about in this and the last section 😉
 BONUS: Use the 'displayResults' method to display the 2 arrays in the test data. Use both the 'array' and the 'string' option. Do NOT put the arrays in the poll object! So what shoud the this keyword look like in this situation?
@@ -351,10 +351,7 @@ console.log(longest(cc, cc)); // Output: "abcdefghijklmnopqrstuvwxyz"
 Construct Binary Tree from Inorder and Postorder Traversal
 Given two integer arrays inorder and postorder where inorder is the inorder traversal of a binary tree and postorder is the postorder traversal of the same tree, construct and return the binary tree.
 
- 
-
 Example 1:
-
 
 Input: inorder = [9,3,15,20,7], postorder = [9,15,7,20,3]
 Output: [3,9,20,null,null,15,7]
@@ -362,7 +359,6 @@ Example 2:
 
 Input: inorder = [-1], postorder = [-1]
 Output: [-1]
- 
 
 Constraints:
 
@@ -463,7 +459,7 @@ if (num === 0) {
 
 // The following variables are defined in the global scope
 const num1 = 20;
-const num2 = 3;
+// const num2 = 3;
 const name = "Chamakh";
 
 // This function is defined in the global scope
@@ -530,3 +526,12 @@ function outside() {
 }
 
 console.log(outside()(10)); // 20 (instead of 10)
+
+const pet = function (name) {
+  const callPet = function () {
+    return name;
+  };
+  return callPet();
+};
+
+console.log(pet("Bunny"));
