@@ -69,3 +69,5 @@ try {
 } catch (error) {
   failureCallback(error);
 }
+
+setTimeout(() => saySomething("10 seconds passed"), 10 * 1000);
