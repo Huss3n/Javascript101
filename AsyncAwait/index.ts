@@ -71,3 +71,15 @@ try {
 }
 
 setTimeout(() => saySomething("10 seconds passed"), 10 * 1000);
+
+const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+wait(10 * 1000)
+  .then(() => saySomething("10 seconds"))
+  .catch(failureCallback);
+
+let value = 1;
+doSomething(() => {
+  value = 2;
+});
+console.log(value); // 1 or 2?
