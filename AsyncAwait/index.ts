@@ -60,3 +60,12 @@ new Promise((resolve, reject) => {
   .then(() => {
     console.log("Do this, no matter what happened before");
   });
+
+try {
+  const result = syncDoSomething();
+  const newResult = syncDoSomethingElse(result);
+  const finalResult = syncDoThirdThing(newResult);
+  console.log(`Got the final result: ${finalResult}`);
+} catch (error) {
+  failureCallback(error);
+}
