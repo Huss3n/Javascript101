@@ -220,8 +220,16 @@ ourTuple = [5, false, "Coding God was here"];
 ourTuple.push("Something new and wrong");
 console.log(ourTuple);
 
+// object types
 const car: { type: string; model: string; year: number } = {
   type: "Toyota",
   model: "Corolla",
   year: 2009,
 };
+
+// type inference
+const car = {
+  type: "Toyota",
+};
+car.type = "Ford"; // no error
+car.type = 2; // Error: Type 'number' is not assignable to type 'string'.
