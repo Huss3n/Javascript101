@@ -288,3 +288,10 @@ function add(a: any, b: any) {
   }
   throw new Error("Parameters must be numbers or strings");
 }
+
+class Person {
+  private ssn: string;
+  private firstName: string;
+  private lastName: string;
+  // ...
+}
