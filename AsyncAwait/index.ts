@@ -289,9 +289,26 @@ function add(a: any, b: any) {
   throw new Error("Parameters must be numbers or strings");
 }
 
+// access modifies
 class Person {
   private ssn: string;
   private firstName: string;
   private lastName: string;
   // ...
+}
+
+class Person {
+  private ssn: string;
+  private firstName: string;
+  private lastName: string;
+
+  constructor(ssn: string, firstName: string, lastName: string) {
+    this.ssn = ssn;
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  getFullName(): string {
+    return `${this.firstName} ${this.lastName}`;
+  }
 }
