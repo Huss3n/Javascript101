@@ -358,3 +358,11 @@ let a, b, a1, b1, c, d, rest, pop, push;
 ({ a: a1 = aDefault, b = bDefault } = obj);
 ({ a, b, ...rest } = obj);
 ({ a: a1, b: b1, ...rest } = obj);
+
+// bidning assignment
+const obj = { a: 1, b: { c: 2 } };
+const {
+  a,
+  b: { c: d },
+} = obj;
+// Two variables are bound: `a` and `d`
