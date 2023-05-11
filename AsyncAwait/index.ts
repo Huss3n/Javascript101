@@ -366,3 +366,9 @@ const {
   b: { c: d },
 } = obj;
 // Two variables are bound: `a` and `d`
+
+let a = 10,
+  b = 20;
+if (a < b) {
+  console.log("a is less than b.");
+}
