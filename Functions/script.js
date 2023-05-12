@@ -123,8 +123,7 @@ const delta = {
     });
   },
 };
-
-delta.book(245, "Hussein");
+const newMe = delta?.airplane;
 console.log(delta.bookings);
 delta.book(532, "Aisak");
 delta.book(129, "Muktar");
