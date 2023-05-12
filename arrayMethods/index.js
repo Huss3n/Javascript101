@@ -108,3 +108,21 @@ console.log(addNum.every(isAbove40)); // returns a boolean
 
 myColor = ["Red", "Green", "White", "Black"];
 console.log(myColor.join(""));
+
+// promises
+const myPromise = new Promise((resolve, reject) => {
+  let randomNumber = Math.random();
+  if (randomNumber > 0.5) {
+    resolve(randomNumber);
+  } else {
+    reject("Number too low");
+  }
+});
+
+myPromise
+  .then((result) => {
+    console.log("Success: " + result);
+  })
+  .catch((error) => {
+    console.log("Error: " + error);
+  });
