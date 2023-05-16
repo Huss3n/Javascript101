@@ -126,3 +126,26 @@ myPromise
   .catch((error) => {
     console.log("Error: " + error);
   });
+
+let stocks = {
+  Fruits: ["strawberry", "grapes", "banana", "apple"],
+  liquid: ["water", "ice"],
+  holder: ["cone", "cup", "stick"],
+  toppings: ["chocolate", "peanuts"],
+};
+
+let shop_open = true;
+let order = (time, work) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (shop_open) {
+        resolve(work);
+      } else {
+        reject("Shop is closed");
+      }
+    }, time);
+  });
+};
+
+order(2000, stocks.Fruits[0]);
+console.log(order(2000, () => console.log(`${stocks.Fruits[0]} has been selected`))); 
