@@ -56,8 +56,7 @@ btnRoll.addEventListener("click", function () {
     if (dice !== 1) {
       // Add dice to current score
       currentScore += dice;
-      document.getElementById(`current--${activePlayer}`).textContent =
-        currentScore;
+      document.getElementById(`current--${activePlayer}`).textContent = currentScore;
     } else {
       // Switch to next player
       switchPlayer();
@@ -71,8 +70,7 @@ btnHold.addEventListener("click", function () {
     scores[activePlayer] += currentScore;
     // scores[1] = scores[1] + currentScore
 
-    document.getElementById(`score--${activePlayer}`).textContent =
-      scores[activePlayer];
+    document.getElementById(`score--${activePlayer}`).textContent = scores[activePlayer];
 
     // 2. Check if player's score is >= 100
     if (scores[activePlayer] >= 100) {
@@ -80,12 +78,8 @@ btnHold.addEventListener("click", function () {
       playing = false;
       diceEl.classList.add("hidden");
 
-      document
-        .querySelector(`.player--${activePlayer}`)
-        .classList.add("player--winner");
-      document
-        .querySelector(`.player--${activePlayer}`)
-        .classList.remove("player--active");
+      document.querySelector(`.player--${activePlayer}`).classList.add("player--winner");
+      document.querySelector(`.player--${activePlayer}`).classList.remove("player--active");
     } else {
       // Switch to the next player
       switchPlayer();
@@ -145,3 +139,6 @@ btnNew.addEventListener("click", init);
 
 // // // resets the game
 // // newGameButton.addEventListener("click", reset);
+
+import React from "react";
+import ReactDOM from "react-dom";
