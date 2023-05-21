@@ -140,6 +140,28 @@ btnNew.addEventListener("click", init);
 // // // resets the game
 // // newGameButton.addEventListener("click", reset);
 
+const colors = [
+  {
+    id: 1,
+    white: "white",
+  },
+  {
+    id: 2,
+    blue: "blue",
+  },
+  {
+    id: 3,
+    red: "red",
+  },
+  {
+    id: 4,
+    green: "green",
+  },
+  {
+    id: 5,
+    black: "black",
+  },
+];
 import React from "react";
 import ReactDOM from "react-dom";
 
