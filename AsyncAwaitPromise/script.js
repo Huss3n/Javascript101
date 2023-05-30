@@ -5,50 +5,42 @@ const countriesContainer = document.querySelector(".countries");
 
 ///////////////////////////////////////
 
-function getCountry(country) {
-  const request = new XMLHttpRequest();
-  request.open("GET", `https://restcountries.com/v3.1/name/${country}`);
-  request.send();
+const renderCountry = (data) => {
+  const html = `
+    <article class="country">
+    <img class="country__img" src="${data.flags.png}" />
+    <div class="country__data">
+      <h3 class="country__name">${data.name.official}</h3>
+      <h4 class="country__region">${data.region}</h4>
+      <p class="country__row"><span>👫</span>${(+data.population / 1_000_000).toFixed(1)} Million people</p>
+      <p class="country__row"><span>🗣️</span>${data.languages.eng}</p>
+    </div>
+  </article>
+    `;
+  countriesContainer.insertAdjacentHTML("beforeend", html);
+  countriesContainer.style.opacity = 1;
+};
 
-  request.addEventListener("load", function () {
-    const [data] = JSON.parse(this.responseText);
-    console.log(data);
-
-    const html = `
-  <article class="country">
-  <img class="country__img" src="${data.flags.svg}" />
-  <div class="country__data">
-    <h3 class="country__name">${data.name.official}</h3>
-    <h4 class="country__region">${data.region}</h4>
-    <p class="country__row"><span>👫</span>${(+data.population / 1_000_000).toFixed(1)} Million people</p>
-    <p class="country__row"><span>🗣️</span>${data.languages.eng}</p>
-    <p class="country__row"><span>💰</span>${data.currencies.CAD.name}</p>
-  </div>
-</article>
-  `;
-
-    countriesContainer.insertAdjacentHTML("beforeend", html);
-    countriesContainer.style.opacity = 1;
-  });
+// function using promises
+function getCountryData(country) {
+  fetch(`https://restcountries.com/v3.1/name/${country}`)
+    .then((response) => response.json())
+    .then(function (data) {
+      renderCountry(data[0]);
+      const neighbor = data[0]?.borders[0];
+      // neighbour country
+      return fetch(`https://restcountries.com/v3.1/alpha/${neighbor}`)
+        .then((response) => response.json())
+        .then((data) => renderCountry(data));
+    });
 }
 
-getCountry("canada");
+getCountryData("usa");
 
-// call back hell example
-// setTimeout(() => {
-//   console.log("1 Second passed");
-//   setTimeout(() => {
-//     console.log("2 Seconds passed");
-//     setTimeout(() => {
-//       console.log("3 Seconds passed");
-//       setTimeout(() => {
-//         console.log("4 Seconds passed");
-//       }, 1000);
-//       setTimeout(() => {
-//         setTimeout(() => {
-//           console.log("6 Seconds passed");
-//         }, 1000);
-//       }, 1000);
-//     }, 1000);
-//   }, 1000);
-// }, 1000);
+function cmp() {
+  return (
+    <div>
+      <h2>Retry</h2>
+    </div>
+  );
+}
